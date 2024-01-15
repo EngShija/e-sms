@@ -135,9 +135,9 @@ function self_user_update($user_id, $fname, $mname, $lname, $address, $birth, $g
     return database()->query($query);
 }
 
-function delete_user(int $delete_id)
+function delete_user(int $user_id)
 {
-    $sql = "DELETE from users where id = $delete_id";
+    $sql = "DELETE from users where id = $user_id";
     $result = database()->query($sql);
     return $result;
 }
