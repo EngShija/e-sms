@@ -1,0 +1,480 @@
+* {
+    font-size: 20px;
+    flex-wrap: wrap;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+body {
+    background-size: cover;
+    width: 99.5%;
+    margin: auto;
+    background-image: url(../images/photo-1580582932707-520aed937b7b.jpeg);
+    background-attachment: fixed;
+    background-position: center;
+
+}
+
+.header {
+    /* background: linear-gradient(gray, rgb(51, 51, 109)); */
+    color: blue;
+    border-bottom: 3px solid rgb(4, 20, 243);
+    width: 100%;
+    height: fit-content;
+    flex-wrap: wrap;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.header h {
+    font-size: 35px;
+    flex-wrap: wrap;
+    box-shadow: 0 8px 16px 0;
+    background: rgb(154, 154, 207);
+    padding: 4px 10px;
+    border-radius: 15px;
+    float: left;
+    margin-left: 6px;
+    /* display: inline-flex; */
+}
+
+.header h span{
+    font-size: 35px;
+    color: rgb(255, 255, 0);
+}
+
+.header p{
+    /* float: right; */
+    display: inline-flex;
+    margin: 10px;
+    flex-wrap: wrap;
+    margin-left: 30px;
+    float: right;
+    
+}
+.header h6{
+    color: #fff;
+    text-align: center;
+}
+
+.header p a{
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bolder;
+    font-style: italic;
+}
+
+.header p :hover{
+    color: rgb(152, 152, 199);
+    transform: translateY(-2px);
+ 
+}
+
+.header img {
+    height: 100px;
+    width: 100px;
+    box-shadow: 0 0 20px 0;
+    border-radius: 50%;
+    margin-right: 60px;
+}
+
+.container {
+    border-top: 3px solid rgb(0, 0, 0);
+    border-bottom: 3px solid rgb(0, 0, 0);
+    width: 100%;
+    display: inline-flex;
+    margin: 0 auto;
+    font-size: 20px;
+    background: rgba(255, 255, 255, 0.4);
+    
+}
+
+.body li {
+    list-style: none;
+    margin: 100px;
+    display: inline-flex;
+    font-size: 30px;
+    text-align: center;
+}
+
+.body a {
+    text-decoration: none;
+    color: white;
+}
+
+.body li :hover {
+    background: gray;
+    transform: translateY(-5px);
+}
+
+
+.MyLoginForm {
+    box-shadow: 0px 5px 5px 0px rgb(0, 0, 0);
+    flex-wrap: wrap;
+    text-align: center;
+    padding: 20px 15px;
+    border-top: 3px solid green;
+    border-bottom: 3px solid green;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 18px;
+}
+
+.submit :hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 10px 0 rgb(39, 5, 5);
+    background: rgb(57, 57, 168);
+}
+
+.submit input {
+    background: blue;
+}
+
+.row {
+    display: inline-flex;
+}
+
+.MyLoginForm img {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+}
+
+.head {
+    text-align: center;
+    margin: 0 auto;
+    color: rgb(0, 0, 0);
+}
+
+.MyLoginForm input {
+    border-radius: 10px;
+    padding: 10px 10px;
+    width: auto;
+    background: white;
+    border: 0;
+    font-size: 18px;
+}
+
+.LinkBar {
+    background-color: #bccece;
+    height: 100%;
+    margin-left: 0;
+    /* background: blue; */
+}
+
+.LinkBar li a img {
+    width: 30px;
+    height: 30px;
+    margin: 20px;
+    border-radius: 12px;
+    margin-left: 3px;
+
+}
+
+.LinkBar li {
+    list-style: none;
+    margin-left: 0;
+}
+
+.LinkBar a {
+    text-decoration: none;
+    margin-left: 0;
+}
+
+.all {
+    display: inline-flex;
+    width: 100%;
+}
+
+.prof {
+    box-shadow: 0 8px 16px 0 black;
+    height: fit-content;
+    width: fit-content;
+    flex-wrap: wrap;
+    border-radius: 20px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 15px 15px;
+}
+.prof h3{
+    display: inline-flex;
+    font-size: 20px;
+}
+.prof p{
+    display: inline-flex;
+    font-size: 18px;
+    font-weight: bolder;
+}
+.prof li{
+    list-style: none;
+    text-align: center;
+}
+.prof li a{
+    color: blue;
+    font-weight: bolder;
+}
+.prof li  :hover{
+    color: rgb(46, 48, 134);
+    transform: translateY(-4px);
+}
+.messages p{
+    color: red;
+    font-weight: bolder;
+    font-style: italic;
+    text-align: left;
+    margin-left: 10px;
+    font-size: 18px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.profilepic img {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    float: left;
+}
+
+.item1 {
+    text-align: center;
+    color: #000;
+    width: fit-content;
+    box-shadow: 0 8px 16px 0;
+    margin-top: 10px;
+    margin: 10px auto;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 8px 8px;
+    border-radius: 18px;
+}
+
+.item2 {
+    text-align: center;
+    color: #000;
+    width: fit-content;
+    box-shadow: 0 8px 16px 0;
+    margin-top: 10px;
+    margin: 10px auto;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 8px 8px;
+    border-radius: 18px;
+}
+
+.item3 {
+    text-align: center;
+    color: black;
+    width: fit-content;
+    box-shadow: 0 8px 16px 0;
+    margin-top: 10px;
+    margin: 10px auto;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 8px 8px;
+    border-radius: 18px;
+}
+
+.item4 {
+    text-align: center;
+    color: #000;
+    width: fit-content;
+    box-shadow: 0 8px 16px 0;
+    margin-top: 10px;
+    margin: 10px auto;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 8px 8px;
+    border-radius: 18px;
+}
+
+.item4 li {
+    list-style: none;
+    background: rgb(0, 0, 255);
+    padding: 7px 7px;
+    border-radius: 15px;
+    margin: 15px;
+    width: fit-content;
+    display: inline-flex;
+}
+
+.item4 a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.time {
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bolder;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    width: fit-content;
+    overflow: hidden;
+    flex-wrap: wrap;
+    padding-left: 7px;
+    margin: 0 auto;
+}
+
+.footer {
+    background: rgba(0, 0, 0, 0.5);
+    border-top: 3px solid rgb(0, 17, 255);
+    color: white;
+}
+
+.footer h3 {
+    color: white;
+    font-size: 20px;
+}
+
+.footer h2 {
+    color: blue;
+    font-size: 18px;
+    font-style: italic;
+    font-weight: bolder;
+}
+
+.footer li {
+    list-style: none;
+    text-align: center;
+    color: rgb(0, 0, 255);
+    font-weight: bolder;
+    font-style: italic;
+    margin: 2px;
+    
+}
+
+.footer li img {
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+}
+
+.container fieldset{
+    width: fit-content;
+    box-shadow: 0 0 7px 0 rgb(0, 0, 0);
+    margin:0 auto;
+    padding: 20px 10px;
+    border-radius: 20px;
+    border: 3px solid blue;
+}
+.inlineForm{
+    display: inline-flex;
+   
+}
+.faliureBox {
+    color: rgb(168, 43, 43);
+    background-color: rgb(226, 210, 210);
+    border: 1px red solid;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    font-size: 10px;
+    margin-bottom: 7px;
+    font-weight: bolder;
+    padding: 3px 10px;
+    border-radius: 3px;
+}
+/* .faliureBox h3{
+    font-size: 12px;
+    font-style: italic;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+} */
+
+.successBox{
+    width: fit-content;
+    margin: 0 auto;
+    font-size: 10px;
+    padding: auto 15px;
+    color: green;
+    font-weight: bolder;
+    background-color: rgb(201, 227, 201);
+    padding: 3px 10px;
+    border: green solid 1px;
+    border-radius: 3px;
+    
+
+}
+/* .successBox h3{
+    font-size: 12px;
+    font-style: italic;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+
+}*/
+.admintools{
+    margin: 0 auto;
+}
+
+.admintools li{
+    list-style: none;
+    display: inline-flex;
+    margin: 7px;
+   
+}
+.admintools a{
+    text-decoration: none;
+    background: blue;
+    color: white;
+    padding: 4px 4px;
+    border-radius: 10px;
+    
+    margin-top: 20px;
+}
+.admintools input{
+background: blue;
+color: #000;
+}
+table{
+    background: rgba(0, 0, 0, 0.7);
+    width: fit-content;
+    color: white;
+    margin: 0 auto;
+    
+}
+table th{
+    font-size: 16px;
+    background-color: rgb(36, 83, 60);
+    color: #000;
+}
+table td{
+    font-size: 14px;
+}
+td a{
+    text-decoration: none;
+    
+}
+.editbtn{
+    padding: 2px 3px;
+    border-radius: 7px;
+}
+.deletebtn{
+    padding: 2px 3px;
+    border-radius: 7px;
+}
+.editbtn a{
+    color: #fff;
+}
+.deletebtn a{
+    color: #fff;
+
+}
+.editbtn img{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+.deletebtn img{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+.errorMsg{
+    color: red;
+    font-size: 14px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-weight: bolder;
+}
+select{
+    padding: 10px 8px;
+    border-radius: 10px;
+}
