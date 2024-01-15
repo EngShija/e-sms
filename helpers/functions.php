@@ -1,11 +1,13 @@
 <?php
+define("CURRENT_SESSION_USER", "user_id");
+
 require_once __DIR__ . "/../inc/database.php";
 
 function is_user_present(string $email, int $phone_number)
 {
     $sql = "SELECT * FROM users WHERE email = '$email' OR phone = $phone_number";
-    $result = database()->query($sql);
-    return $result->num_rows > 0;
+    return database()->query($sql)->num_rows > 0;
+  
 }
 
 function redirect_to(string $url)
@@ -77,8 +79,7 @@ function get_admin_info_by_email(string $email)
 
 function users()
 {
-    return database()->query("SELECT * FROM users")
-        ->fetch_all(MYSQLI_ASSOC);
+    return database()->query("SELECT * FROM users")->fetch_all(MYSQLI_ASSOC);
 }
 
 function login_student(string $email, string $password)
@@ -87,7 +88,7 @@ function login_student(string $email, string $password)
 
     if ($user) {
         if (verify_hashed_password($password, $user['password'])) {
-            $_SESSION['userId'] = $user['id'];
+            set_session($user['id']);
             redirect_to('../prog.php');
         } else {
             redirect_to('../login.php?wrong-cred');
@@ -98,7 +99,7 @@ function login_student(string $email, string $password)
 }
 
 
-function is_logged()
+function is_logged()   
 {
     return isset($_SESSION['userId']);
 }
@@ -111,7 +112,7 @@ function kick_user_to(string $url)
 }
 
 function is_request_method_post()
-{
+{  
     return strtoupper($_SERVER["REQUEST_METHOD"] === "POST");
 }
 
@@ -153,6 +154,10 @@ function validate_inputs($data){
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
     return $data;
+}
+
+function set_session(int $user_id) {
+    $_SESSION[CURRENT_SESSION_USER] = $user_id;
 }
 
 
