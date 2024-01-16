@@ -1,9 +1,19 @@
 <?php
-session_start();
 include_once "inc/header.php";
-include_once "inc/database.php";
 require_once __DIR__ . "/helpers/functions.php";
-?>
+require_once __DIR__. "/inc/database.php";
+if (isset($_POST['search'])) {
+    $reg_num = $_POST['serch_term'];
+    $first_name = $_POST['serch_term'];
+    $middle_name = $_POST['serch_term'];
+    $last_name = $_POST['serch_term'];
+
+    //sql query to serch data
+    $sql = "SELECT * FROM users WHERE RegNo LIKE '$reg_num' OR fname LIKE '$first_name' OR mname LIKE '$middle_name' OR lname LIKE '$last_name'";
+    $result = database()->query($sql);
+    $row = $result->fetch_assoc();
+
+    if($result->num_rows > 0){ ?>
 
 <div class="header">
     <h><span>e-</span>SMS</h>
@@ -15,23 +25,9 @@ require_once __DIR__ . "/helpers/functions.php";
     </div>
     <h6></h6>
 </div>
-
-<div class="container">
-    <div class="MyLoginForm">
-        <?php genereate_messsage("Student details updated successfully!", "updated", "successBox") ?>
-        <?php genereate_messsage("Student added successfully!", "sucessBox", "faliureBox") ?>
-        <?php genereate_messsage("Data deleted successfully!", "deleted", "successBox") ?>
-        <?php genereate_messsage("No user found!", "nouser", "faliureBox") ?>
-
-        <div class="admintools">
-        <form action="search_config.php" method="POST">
-            <input type="text" name="serch_term" placeholder="Serch users" class="serchBox">
-            <input type="submit" name="search" value="Search">
-            <li><a href="student.php">Add user</a></li>
-        </form>
-        </div>
-
-    <table border="2">
+        <!-- //Display serch results -->
+  <?php    while($row)  {  ?>
+            <table border="2">
         <tr>
             <th>S/N</th>
             <th>RegNumber</th>
@@ -49,57 +45,58 @@ require_once __DIR__ . "/helpers/functions.php";
         </tr>
 
         <tr>
-            <?php $counter = 1 ?>
-            <?php foreach (users() as $user): ?>
 
                 <td>
-                    <?= $counter ?>
+                    <?= $counter = 1 ?>
                 </td>
                 <td>
-                    <?= $user['RegNo'] ?>
+                    <?= $row['RegNo'] ?>
                 </td>
                 <td>
-                    <?= $user['fname'] ?>
+                    <?= $row['fname'] ?>
                 </td>
                 <td>
-                    <?= $user['mname'] ?>
+                    <?= $row['mname'] ?>
                 </td>
                 <td>
-                    <?= $user['lname'] ?>
+                    <?= $row['lname'] ?>
                 </td>
                 <td>
-                    <?= $user['gender'] ?>
+                    <?= $row['gender'] ?>
                 </td>
                 <td>
-                    <?= $user['birth_date'] ?>
+                    <?= $row['birth_date'] ?>
                 </td>
                 <td>
-                    <?= $user['physicalAddress'] ?>
+                    <?= $row['physicalAddress'] ?>
                 </td>
                 <td>
-                    <?= $user['phone'] ?>
+                    <?= $row['phone'] ?>
                 </td>
                 <td>
-                    <?= $user['email'] ?>
+                    <?= $row['email'] ?>
                 </td>
                 <td>
-                    <?= $user['role'] ?>
+                    <?= $row['role'] ?>
                 </td>
 
-                <td class="editbtn"><a href="edit.php?editid=<?= $user['id'] ?>"><img src="images/edit.png"></a>
+                <td class="editbtn"><a href="edit.php?editid=<?= $row['id'] ?>"><img src="images/edit.png"></a>
                 </td>
-                <td class="deletebtn"><a href="config/delete.php?deleteid=<?= $user['id'] ?>"><img
+                <td class="deletebtn"><a href="config/delete.php?deleteid=<?= $row['id'] ?>"><img
                             src="images/delete.jpeg"></a>
                 </td>
 
+
             </tr>
-            <?php $counter++ ?>
-        <?php endforeach; ?>
+            </table>
+            <?php $counter++; exit; } ?>
+<?php
+        }else{
+            redirect_to("studentsList.php?nouser");
+        }
+    }
+ ?>
 
-    </table>
-
-</div>
-</div>
 <section class="footer">
     <div class="head">
         <h3>Developed and published by Eng. Shija</h3>
@@ -125,6 +122,8 @@ require_once __DIR__ . "/helpers/functions.php";
         <p>&#169All Rights Reserved</p>
     </div>
 </section>
-</body>
+<?php include_once "inc/footer.php"; ?>
 
-</html>
+
+        
+      

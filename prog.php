@@ -1,9 +1,10 @@
 <?php
 session_start();
-$user_id = $_SESSION['userId'];
+
 include_once "inc/header.php";
 include_once "inc/database.php";
 require_once __DIR__ . "/helpers/functions.php";
+$user_id = id();
 kick_user_to("access.php");
 $data = get_user_info_by_id($user_id);
 ?>

@@ -1,12 +1,11 @@
 <?php
 session_start();
-$user_id = $_SESSION['userId'];
 include_once "inc/header.php";
 include_once __DIR__ . "/inc/database.php";
 include_once __DIR__ . "/helpers/functions.php";
 kick_user_to("access.php");
 if (is_logged()) {
-    $data = get_user_info_by_id($user_id);
+    $data = get_user_info_by_id(id());
 }
 ?>
 </div>

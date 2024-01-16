@@ -1,13 +1,15 @@
 <?php
-define("CURRENT_SESSION_USER", "user_id");
 
 require_once __DIR__ . "/../inc/database.php";
+
+define("CURRENT_USER_ID", "user_id");
+define("STORED_ID", "id");
 
 function is_user_present(string $email, int $phone_number)
 {
     $sql = "SELECT * FROM users WHERE email = '$email' OR phone = $phone_number";
     return database()->query($sql)->num_rows > 0;
-  
+
 }
 
 function redirect_to(string $url)
@@ -40,7 +42,7 @@ function verify_password(string $pass_one, string $pass_two)
     return $pass_one === $pass_two;
 }
 
-function login_out(string $url)
+function log_out(string $url)
 {
     session_start();
     session_regenerate_id(true);
@@ -65,7 +67,7 @@ function get_usrer_info_by_email(string $email)
     return $result->fetch_assoc();
 }
 
-function get_user_info_by_id(int $user_id)
+function get_user_info_by_id($user_id)
 {
     $result = database()->query("SELECT * FROM users WHERE id = '$user_id'");
     return $result->fetch_assoc();
@@ -82,13 +84,17 @@ function users()
     return database()->query("SELECT * FROM users")->fetch_all(MYSQLI_ASSOC);
 }
 
+// function user_serched(){
+//     return database()->query("SELECT * FROM users WHERE RegNo LIKE '$search_term'")->fetch_all(MYSQLI_ASSOC);
+// }
+
 function login_student(string $email, string $password)
 {
     $user = get_usrer_info_by_email($email);
 
     if ($user) {
         if (verify_hashed_password($password, $user['password'])) {
-            set_session($user['id']);
+            set_session($user[STORED_ID]);
             redirect_to('../prog.php');
         } else {
             redirect_to('../login.php?wrong-cred');
@@ -99,20 +105,20 @@ function login_student(string $email, string $password)
 }
 
 
-function is_logged()   
+function is_logged()
 {
-    return isset($_SESSION['userId']);
+    return isset($_SESSION[CURRENT_USER_ID]);
 }
 
 function kick_user_to(string $url)
 {
-    if (!is_logged() && $_SESSION['userId'] == null) {
+    if (!is_logged() && $_SESSION[CURRENT_USER_ID] == null) {
         redirect_to($url);
     }
 }
 
 function is_request_method_post()
-{  
+{
     return strtoupper($_SERVER["REQUEST_METHOD"] === "POST");
 }
 
@@ -149,16 +155,28 @@ function get_email_and_reg_no(string $email, string $RegNo)
     return $result->fetch_assoc();
 }
 
-function validate_inputs($data){
+function validate_inputs($data)
+{
     $data = trim($data);
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
     return $data;
 }
 
-function set_session(int $user_id) {
-    $_SESSION[CURRENT_SESSION_USER] = $user_id;
+function set_session(int $user_id)
+{
+    $_SESSION[CURRENT_USER_ID] = $user_id;
 }
 
 
+function id()
+{
+    return isset($_SESSION[CURRENT_USER_ID]) ? $_SESSION[CURRENT_USER_ID] : null;
 
+}
+function search_user($reg_num, $first_name, $middle_name, $last_name){
+    $sql = "SELECT * FROM users WHERE RegNo LIKE '$reg_num' OR fname = '$first_name' OR mname = '$middle_name' OR lname = '$last_name'";
+    $result = database()->query($sql);
+    $row = $result->fetch_assoc();
+    return $result->num_rows > 0;
+}

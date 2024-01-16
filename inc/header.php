@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>school||management||system</title>
+    <title>e-sms</title>
     <link rel="stylesheet" href="./assets/style.css">
     <link rel="icon" href="images/avatar.jpeg">
     <meta charset="UTF-8">

@@ -402,6 +402,7 @@ body {
 }*/
 .admintools{
     margin: 0 auto;
+    margin-bottom: 5px;
 }
 
 .admintools li{
@@ -414,7 +415,7 @@ body {
     text-decoration: none;
     background: blue;
     color: white;
-    padding: 4px 4px;
+    padding: 8px 8px;
     border-radius: 10px;
     
     margin-top: 20px;
@@ -422,6 +423,14 @@ body {
 .admintools input{
 background: blue;
 color: #000;
+color: #fff;
+}
+
+.admintools .serchBox{
+    color:  #000;
+    background: white;
+    box-shadow: 0 8px 16px 0 #000;
+
 }
 table{
     background: rgba(0, 0, 0, 0.7);
