@@ -25,7 +25,7 @@ require_once __DIR__ . "/helpers/functions.php";
 
         <div class="admintools">
         <form action="search_config.php" method="POST">
-            <input type="text" name="serch_term" placeholder="Serch users" class="serchBox">
+            <input type="text" name="serch_term" placeholder="Serch users" class="serchBox" required>
             <input type="submit" name="search" value="Search">
             <li><a href="student.php">Add user</a></li>
         </form>
