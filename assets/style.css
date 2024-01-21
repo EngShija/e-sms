@@ -18,7 +18,7 @@ body {
 .header {
     /* background: linear-gradient(gray, rgb(51, 51, 109)); */
     color: blue;
-    border-bottom: 3px solid rgb(4, 20, 243);
+    border-bottom: 3px solid rgb(213, 215, 253);
     width: 100%;
     height: fit-content;
     flex-wrap: wrap;
@@ -357,6 +357,13 @@ body {
     border-radius: 20px;
     border: 3px solid blue;
 }
+
+fieldset small a{
+   float: right;
+   font-weight: bolder;
+   font-style: italic;
+   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 .inlineForm{
     display: inline-flex;
    
@@ -373,12 +380,6 @@ body {
     padding: 3px 10px;
     border-radius: 3px;
 }
-/* .faliureBox h3{
-    font-size: 12px;
-    font-style: italic;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-
-} */
 
 .successBox{
     width: fit-content;
@@ -394,12 +395,6 @@ body {
     
 
 }
-/* .successBox h3{
-    font-size: 12px;
-    font-style: italic;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
-
-}*/
 .admintools{
     margin: 0 auto;
     margin-bottom: 5px;

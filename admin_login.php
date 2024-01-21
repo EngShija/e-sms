@@ -26,11 +26,9 @@ require_once __DIR__."/helpers/functions.php";
         <fieldset>
             <legend><img src="images/avatar.jpeg"></legend>
 
-            <small><a href="admin_login.php">Admin</a></small><br><br>
-
-            <form action="./actions-handler/login-handler.php" name="myForm" onsubmit="return FormValidation()"
+            <form action="actions-handler/admin_login-handler.php" name="myForm" onsubmit="return FormValidation()"
                 method="POST">
-                <input type="email" name="username" placeholder="Email"><br><br>
+                <input type="text" name="username" placeholder="Admin's username"><br><br>
                 <input type="password" name="password" placeholder="Password"><br><br>
                 <div class="submit">
                     <input name="login" type="submit" value="login"
@@ -42,7 +40,7 @@ require_once __DIR__."/helpers/functions.php";
                     <h3>Forgot Password!</h3>
                 </a>
                 <div class="row"></div>
-                <input type="checkbox" name="cookie" style="height: 17px;width: 17px;"> Remember me<br>
+               
                 <div class="submit">
             </form>
         </fieldset>

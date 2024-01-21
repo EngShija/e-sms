@@ -7,11 +7,14 @@ if (isset($_POST['search'])) {
     $first_name = $_POST['serch_term'];
     $middle_name = $_POST['serch_term'];
     $last_name = $_POST['serch_term'];
+    $email = $_POST['serch_term'];
+    $role =$_POST['serch_term'];
+
 
     //sql query to serch data
-    $sql = "SELECT * FROM users WHERE RegNo LIKE '%$reg_num%' OR fname LIKE '%$first_name%' OR mname LIKE '%$middle_name%' OR lname LIKE '%$last_name%'";
+    $sql = "SELECT * FROM users WHERE RegNo LIKE '%$reg_num%' OR fname LIKE '%$first_name%' OR mname LIKE '%$middle_name%' OR lname LIKE '%$last_name%' OR email LIKE '%$email%' OR role LIKE '%$role%'";
     $result = database()->query($sql);
-    $students = $result->fetch_all(MYSQLI_ASSOC > 0);
+    $students = $result->fetch_all(MYSQLI_ASSOC);
 }
 ?>
 
@@ -30,7 +33,7 @@ if (isset($_POST['search'])) {
     <div class="MyLoginForm">
 <!-- //Display serch results -->
 <?php if($students) { ?>
-<small class="successBox">Serch results</small>
+<small class="successBox">Search results!</small>
 <table border="2">
     <tr>
         <th>S/N</th>

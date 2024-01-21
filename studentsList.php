@@ -20,11 +20,11 @@ require_once __DIR__ . "/helpers/functions.php";
     <div class="MyLoginForm">
         <?php genereate_messsage("Student details updated successfully!", "updated", "successBox") ?>
         <?php genereate_messsage("Student added successfully!", "sucessBox", "faliureBox") ?>
-        <?php genereate_messsage("Data deleted successfully!", "deleted", "successBox") ?>
+        <?php genereate_messsage("Data deleted successfully!", "deleted", "faliureBox") ?>
         <?php genereate_messsage("No user found!", "nouser", "faliureBox") ?>
 
         <div class="admintools">
-        <form action="search_config.php" method="POST">
+        <form action="search.php" method="POST">
             <input type="text" name="serch_term" placeholder="Serch users" class="serchBox" required>
             <input type="submit" name="search" value="Search">
             <li><a href="student.php">Add user</a></li>

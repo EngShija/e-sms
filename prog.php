@@ -73,7 +73,7 @@ $data = get_user_info_by_id($user_id);
 
     </div>
 
-
+<footer>
     <section class="footer">
         <div class="head">
             <h2>You logged in as
@@ -104,6 +104,7 @@ $data = get_user_info_by_id($user_id);
         <p>&#169All Rights Reserved</p>
     </div>
 </section>
+</footer>
 </body>
 
 </html>
