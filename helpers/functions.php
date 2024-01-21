@@ -174,9 +174,8 @@ function id()
     return isset($_SESSION[CURRENT_USER_ID]) ? $_SESSION[CURRENT_USER_ID] : null;
 
 }
-function search_user($reg_num, $first_name, $middle_name, $last_name){
-    $sql = "SELECT * FROM users WHERE RegNo LIKE '$reg_num' OR fname = '$first_name' OR mname = '$middle_name' OR lname = '$last_name'";
+function search_user($reg_num, $first_name, $middle_name, $last_name, $email, $role){
+    $sql = "SELECT * FROM users WHERE RegNo LIKE '%$reg_num%' OR fname LIKE '%$first_name%' OR mname LIKE '%$middle_name%' OR lname LIKE '%$last_name%' OR email LIKE '%$email%' OR role LIKE '%$role%'";
     $result = database()->query($sql);
-    $row = $result->fetch_assoc();
-    return $result->num_rows > 0;
+    return $result->fetch_all(MYSQLI_ASSOC);
 }

@@ -9,12 +9,7 @@ if (isset($_POST['search'])) {
     $last_name = $_POST['serch_term'];
     $email = $_POST['serch_term'];
     $role =$_POST['serch_term'];
-
-
-    //sql query to serch data
-    $sql = "SELECT * FROM users WHERE RegNo LIKE '%$reg_num%' OR fname LIKE '%$first_name%' OR mname LIKE '%$middle_name%' OR lname LIKE '%$last_name%' OR email LIKE '%$email%' OR role LIKE '%$role%'";
-    $result = database()->query($sql);
-    $students = $result->fetch_all(MYSQLI_ASSOC);
+    $users = search_user($reg_num, $first_name, $middle_name, $last_name, $email, $role);
 }
 ?>
 
@@ -32,7 +27,7 @@ if (isset($_POST['search'])) {
 <div class="container">
     <div class="MyLoginForm">
 <!-- //Display serch results -->
-<?php if($students) { ?>
+<?php if($users) { ?>
 <small class="successBox">Search results!</small>
 <table border="2">
     <tr>
@@ -53,45 +48,45 @@ if (isset($_POST['search'])) {
 
     <tr>
         <?php $counter = 1 ?>
-        <?php foreach ($students as $student): ?>
+        <?php foreach ($users as $user): ?>
 
             <td>
                 <?= $counter ?>
             </td>
             <td>
-                <?= $student['RegNo'] ?>
+                <?= $user['RegNo'] ?>
             </td>
             <td>
-                <?= $student['fname'] ?>
+                <?= $user['fname'] ?>
             </td>
             <td>
-                <?= $student['mname'] ?>
+                <?= $user['mname'] ?>
             </td>
             <td>
-                <?= $student['lname'] ?>
+                <?= $user['lname'] ?>
             </td>
             <td>
-                <?= $student['gender'] ?>
+                <?= $user['gender'] ?>
             </td>
             <td>
-                <?= $student['birth_date'] ?>
+                <?= $user['birth_date'] ?>
             </td>
             <td>
-                <?= $student['physicalAddress'] ?>
+                <?= $user['physicalAddress'] ?>
             </td>
             <td>
-                <?= $student['phone'] ?>
+                <?= $user['phone'] ?>
             </td>
             <td>
-                <?= $student['email'] ?>
+                <?= $user['email'] ?>
             </td>
             <td>
-                <?= $student['role'] ?>
+                <?= $user['role'] ?>
             </td>
 
-            <td class="editbtn"><a href="edit.php?editid=<?= $student['id'] ?>"><img src="images/edit.png"></a>
+            <td class="editbtn"><a href="edit.php?editid=<?= $user['id'] ?>"><img src="images/edit.png"></a>
             </td>
-            <td class="deletebtn"><a href="config/delete.php?deleteid=<?= $student['id'] ?>"><img
+            <td class="deletebtn"><a href="config/delete.php?deleteid=<?= $user['id'] ?>"><img
                         src="images/delete.jpeg"></a>
             </td>
         </tr>
