@@ -19,7 +19,7 @@ require_once __DIR__ . "/helpers/functions.php";
 <div class="container">
     <div class="MyLoginForm">
         <?php genereate_messsage("Student details updated successfully!", "updated", "successBox") ?>
-        <?php genereate_messsage("Student added successfully!", "sucessBox", "faliureBox") ?>
+        <?php genereate_messsage("Student added successfully!", "sucess", "successBox") ?>
         <?php genereate_messsage("Data deleted successfully!", "deleted", "faliureBox") ?>
         <?php genereate_messsage("No user found!", "nouser", "faliureBox") ?>
 
@@ -88,7 +88,7 @@ require_once __DIR__ . "/helpers/functions.php";
 
                 <td class="editbtn"><a href="edit.php?editid=<?= $user['id'] ?>"><img src="images/edit.png"></a>
                 </td>
-                <td class="deletebtn"><a href="config/delete.php?deleteid=<?= $user['id'] ?>"><img
+                <td class="deletebtn"><a href="config/delete.php?deleteid=<?= $user['id'] ?>" ><img
                             src="images/delete.jpeg"></a>
                 </td>
 

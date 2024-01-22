@@ -18,12 +18,12 @@ require_once __DIR__ . "/helpers/functions.php";
 <div class="container">
     <div class="MyLoginForm">
         <div class="inlineForm">
-        <?php genereate_messsage("*A user is already exists, Go to login!", "userPresent", "") ?>
+        <?php genereate_messsage("*A user is already exists, Go to login!", "userPresent", "errorMsg") ?>
             <fieldset>
                 <legend>
                     <h3>Basic info</h3>
                 </legend>
-                <form name="myForm" method="POST" action="actions-handler/register-handler.php"
+                <form name="myForm" method="POST" action="AdminTools/addStudent.php"
                     enctype="multipart/form-data">
                     <br>
                          <?php genereate_messsage("*Your passwords did not match", "passmatch", "errorMsg") ?><br><br>
@@ -53,7 +53,7 @@ require_once __DIR__ . "/helpers/functions.php";
                     <legend>
                         <h3>Registration info</h3>
                     </legend>
-                    <input type="text" placeholder="Student's Reg.No" name="RegNo"><br><br>
+                    <input type="text" placeholder="Student's Reg.No" name="reg_num"><br><br>
                     <?php genereate_messsage("*Kindly enter your registration number!", "regcheck", "errorMsg") ?>
     
                     <input type="number" name="phone" placeholder="Phone number">
