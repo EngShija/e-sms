@@ -43,9 +43,9 @@ if (is_logged()) {
 <div class="footer">
     <div class="head">
         <h2>You logged in as
-            <?= $data['fname'] ?>
-            <?= $data['mname'] ?>
-            <?= $data['lname'] ?>
+            <?= $data['first_name'] ?>
+            <?= $data['middle_name'] ?>
+            <?= $data['last_name'] ?>
         </h2>
         <h3>Developed and published by Eng. Shija</h3>
         <h3>Vist us and follow us</h3>

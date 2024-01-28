@@ -11,15 +11,13 @@ $gender = $_POST['ugender'];
 $phone = $_POST['uphone'];
 $email = $_POST['uemail'];
 $RegNo = $_POST['uRegNo'];
-$role = $_POST['role'];
-$password = $_POST['upassword'];
 $data = get_usrer_info_by_email($email);
 $user_id = $data['id'];
 
 
 if (get_user_info_by_id($user_id)) {
     if (isset($_POST['update'])) {
-        if (update_user($user_id, $fname, $mname, $lname, $address, $birth, $gender, $RegNo, $phone, $email, $role)) {
+        if (update_user($user_id, $fname, $mname, $lname, $address, $birth, $gender, $RegNo, $phone, $email,)) {
             header("location: ../studentsList.php?updated");
         } else {
             header("location: ../edit.php.php?notchanged");

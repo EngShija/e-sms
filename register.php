@@ -2,6 +2,7 @@
 require_once "inc/header.php";
 
 require_once __DIR__ . "/helpers/functions.php";
+
 ?>
 
 <div class="header">
@@ -17,8 +18,9 @@ require_once __DIR__ . "/helpers/functions.php";
 </div>
 <div class="container">
     <div class="MyLoginForm">
+    <?php genereate_messsage("*A user is already exists, Go to login!", "userPresent", "errorMsg") ?>
+
         <div class="inlineForm">
-        <?php genereate_messsage("*A user is already exists, Go to login!", "userPresent", "errorMsg") ?>
             <fieldset>
                 <legend>
                     <h3>Basic info</h3>
@@ -67,6 +69,7 @@ require_once __DIR__ . "/helpers/functions.php";
             </div>
             </form>
             </fieldset>
+
         </div>
     </div>
     </div>

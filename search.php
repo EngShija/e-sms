@@ -41,7 +41,6 @@ if (isset($_POST['search'])) {
         <th>PhysicalAddress</th>
         <th>Phone</th>
         <th>Email</th>
-        <th>UserRole</th>
         <th>Edit</th>
         <th>Delete</th>
     </tr>
@@ -54,34 +53,31 @@ if (isset($_POST['search'])) {
                 <?= $counter ?>
             </td>
             <td>
-                <?= $user['RegNo'] ?>
+                <?= $user['reg_num'] ?>
             </td>
             <td>
-                <?= $user['fname'] ?>
+                <?= $user['first_name'] ?>
             </td>
             <td>
-                <?= $user['mname'] ?>
+                <?= $user['middle_name'] ?>
             </td>
             <td>
-                <?= $user['lname'] ?>
+                <?= $user['last_name'] ?>
             </td>
             <td>
                 <?= $user['gender'] ?>
             </td>
             <td>
-                <?= $user['birth_date'] ?>
+                <?= $user['DOB'] ?>
             </td>
             <td>
-                <?= $user['physicalAddress'] ?>
+                <?= $user['physical_address'] ?>
             </td>
             <td>
                 <?= $user['phone'] ?>
             </td>
             <td>
                 <?= $user['email'] ?>
-            </td>
-            <td>
-                <?= $user['role'] ?>
             </td>
 
             <td class="editbtn"><a href="edit.php?editid=<?= $user['id'] ?>"><img src="images/edit.png"></a>

@@ -7,7 +7,7 @@ define("STORED_ID", "id");
 
 function is_user_present(string $email, int $phone_number)
 {
-    $sql = "SELECT * FROM users WHERE email = '$email' OR phone = $phone_number";
+    $sql = "SELECT * FROM student WHERE email = '$email' OR phone = $phone_number";
     return database()->query($sql)->num_rows > 0;
 
 }
@@ -18,9 +18,9 @@ function redirect_to(string $url)
     exit;
 }
 
-function register($fname, $mname, $lname, $address, $birth_date, $gender, $RegNo, $phone, $email, $password)
-{
-    $sql = "INSERT INTO users(fname, mname, lname, physicalAddress, birth_date, gender, RegNo, phone, email,password) 
+function register($fname, $mname, $lname, $address, $birth_date, $gender, $RegNo, $phone, $email, $password){
+
+    $sql = "INSERT INTO student(first_name, middle_name, last_name, physical_address, DOB, gender, reg_num, phone, email,password) 
 
   VALUES('$fname', '$mname', '$lname', '$address', '$birth_date', '$gender', '$RegNo', $phone, '$email', '$password')";
     return database()->query($sql);
@@ -63,13 +63,13 @@ function verify_hashed_password(string $entered_password, string $stored_passwor
 
 function get_usrer_info_by_email(string $email)
 {
-    $result = database()->query("SELECT * FROM users WHERE email = '$email'");
+    $result = database()->query("SELECT * FROM student WHERE email = '$email'");
     return $result->fetch_assoc();
 }
 
 function get_user_info_by_id($user_id)
 {
-    $result = database()->query("SELECT * FROM users WHERE id = '$user_id'");
+    $result = database()->query("SELECT * FROM student WHERE id = '$user_id'");
     return $result->fetch_assoc();
 }
 
@@ -79,14 +79,10 @@ function get_admin_info_by_email(string $email)
     return $result->fetch_assoc();
 }
 
-function users()
+function student()
 {
-    return database()->query("SELECT * FROM users")->fetch_all(MYSQLI_ASSOC);
+    return database()->query("SELECT * FROM student")->fetch_all(MYSQLI_ASSOC);
 }
-
-// function user_serched(){
-//     return database()->query("SELECT * FROM users WHERE RegNo LIKE '$search_term'")->fetch_all(MYSQLI_ASSOC);
-// }
 
 function login_student(string $email, string $password)
 {
@@ -124,33 +120,40 @@ function is_request_method_post()
 
 function update_user_password(string $new_password, int $user_id)
 {
-    $sql = ("UPDATE users SET password ='$new_password' WHERE id = $user_id");
+    $sql = ("UPDATE student SET password ='$new_password' WHERE id = $user_id");
     return database()->query($sql);
 
 }
 
-function update_user($user_id, $fname, $mname, $lname, $address, $birth, $gender, $RegNo, $phone, $email, $role)
+function update_user($user_id, $fname, $mname, $lname, $address, $birth, $gender, $RegNo, $phone, $email)
 {
-    $query = "UPDATE users SET fname = '$fname', mname = '$mname', lname = '$lname', physicalAddress = '$address', birth_date = '$birth', gender = '$gender', RegNo = '$RegNo', phone = '$phone', email = '$email', `role` = '$role' WHERE id =$user_id";
+    $query = "UPDATE student SET first_name = '$fname', middle_name = '$mname', last_name = '$lname', physical_address = '$address', DOB = '$birth', gender = '$gender', reg_num = '$RegNo', phone = $phone, email = '$email'  WHERE id =$user_id";
     return database()->query($query);
 }
 
 function self_user_update($user_id, $fname, $mname, $lname, $address, $birth, $gender, $phone, $email, )
 {
-    $query = "UPDATE users SET fname = '$fname', mname = '$mname', lname = '$lname', physicalAddress = '$address', birth_date = '$birth', gender = '$gender', phone = '$phone', email = '$email' WHERE id =$user_id";
+    $query = "UPDATE student SET first_name = '$fname', middle_name = '$mname', last_name = '$lname', physical_address = '$address', DOB = '$birth', gender = '$gender', phone = '$phone', email = '$email' WHERE id =$user_id";
     return database()->query($query);
 }
 
-function delete_user(int $user_id)
+function delete_student(int $user_id)
 {
-    $sql = "DELETE from users where id = $user_id";
+    $sql = "DELETE from student where id = $user_id";
+    $result = database()->query($sql);
+    return $result;
+}
+
+function delete_parent(int $user_id)
+{
+    $sql = "DELETE from parent where student_id = $user_id";
     $result = database()->query($sql);
     return $result;
 }
 
 function get_email_and_reg_no(string $email, string $RegNo)
 {
-    $sql = "SELECT email, RegNo FROM users WHERE email = '$email' && RegNo = '$RegNo'";
+    $sql = "SELECT email, reg_num FROM student WHERE email = '$email' && reg_num = '$RegNo'";
     $result = database()->query($sql);
     return $result->fetch_assoc();
 }
@@ -175,7 +178,29 @@ function id()
 
 }
 function search_user($reg_num, $first_name, $middle_name, $last_name, $email, $role){
-    $sql = "SELECT * FROM users WHERE RegNo LIKE '%$reg_num%' OR fname LIKE '%$first_name%' OR mname LIKE '%$middle_name%' OR lname LIKE '%$last_name%' OR email LIKE '%$email%' OR role LIKE '%$role%'";
+    $sql = "SELECT * FROM student WHERE reg_num LIKE '%$reg_num%' OR first_name LIKE '%$first_name%' OR middle_name LIKE '%$middle_name%' OR last_name LIKE '%$last_name%' OR email LIKE '%$email%'";
     $result = database()->query($sql);
     return $result->fetch_all(MYSQLI_ASSOC);
 }
+
+function register_parent($fname, $mname, $lname, $phone, $email, $DOB, $relationship,$password, $student_id,)
+{
+    $sql = "INSERT INTO parent(first_name, middle_name, last_name, phone, email, DOB, relationship, password, student_id)
+
+  VALUES('$fname', '$mname', '$lname', $phone, '$email', '$DOB', '$relationship', '$password', $student_id )";
+    return database()->query($sql);
+}
+function parent_exist(int $student_id)
+{
+    $sql = "SELECT * FROM parent WHERE student_id = $student_id";
+    return database()->query($sql)->num_rows > 0;
+}
+
+function get_parent_info_by_id($user_id)
+{
+    $result = database()->query("SELECT * FROM parent WHERE student_id = '$user_id'");
+    return $result->fetch_assoc();
+}
+
+
+

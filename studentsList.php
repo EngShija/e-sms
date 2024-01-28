@@ -27,7 +27,7 @@ require_once __DIR__ . "/helpers/functions.php";
         <form action="search.php" method="POST">
             <input type="text" name="serch_term" placeholder="Serch users" class="serchBox" required>
             <input type="submit" name="search" value="Search">
-            <li><a href="student.php">Add user</a></li>
+            <li><a href="student.php">Add student</a></li>
         </form>
         </div>
 
@@ -43,47 +43,43 @@ require_once __DIR__ . "/helpers/functions.php";
             <th>PhysicalAddress</th>
             <th>Phone</th>
             <th>Email</th>
-            <th>UserRole</th>
             <th>Edit</th>
             <th>Delete</th>
         </tr>
 
         <tr>
             <?php $counter = 1 ?>
-            <?php foreach (users() as $user): ?>
+            <?php foreach (student() as $user): ?>
 
                 <td>
                     <?= $counter ?>
                 </td>
                 <td>
-                    <?= $user['RegNo'] ?>
+                    <?= $user['reg_num'] ?>
                 </td>
                 <td>
-                    <?= $user['fname'] ?>
+                    <?= $user['first_name'] ?>
                 </td>
                 <td>
-                    <?= $user['mname'] ?>
+                    <?= $user['middle_name'] ?>
                 </td>
                 <td>
-                    <?= $user['lname'] ?>
+                    <?= $user['last_name'] ?>
                 </td>
                 <td>
                     <?= $user['gender'] ?>
                 </td>
                 <td>
-                    <?= $user['birth_date'] ?>
+                    <?= $user['DOB'] ?>
                 </td>
                 <td>
-                    <?= $user['physicalAddress'] ?>
+                    <?= $user['physical_address'] ?>
                 </td>
                 <td>
                     <?= $user['phone'] ?>
                 </td>
                 <td>
                     <?= $user['email'] ?>
-                </td>
-                <td>
-                    <?= $user['role'] ?>
                 </td>
 
                 <td class="editbtn"><a href="edit.php?editid=<?= $user['id'] ?>"><img src="images/edit.png"></a>
@@ -95,6 +91,8 @@ require_once __DIR__ . "/helpers/functions.php";
             </tr>
             <?php $counter++ ?>
         <?php endforeach; ?>
+
+        <?php $_SESSION['std_id'] = $user['id'] ?>
 
     </table>
 

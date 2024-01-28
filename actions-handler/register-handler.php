@@ -1,8 +1,9 @@
 <?php
-
+session_start();
 require_once "../helpers/functions.php";
 //defining all variables and set to empty values
-$fname = $mname = $lname = $address = $birth_date = $gender = $phone = $email = $password = $password2 = "";
+ $fname = $mname = $lname = $address = $birth_date = $gender = $phone = $email = $password = $password2 = "";
+
 
 if (isset($_POST['submit'])) {
     if (is_request_method_post()) {
@@ -72,7 +73,14 @@ if (isset($_POST['submit'])) {
             if (verify_password($password, $password2)) {
 
                 register($fname, $mname, $lname, $address, $birth_date, $gender, $RegNo, $phone, $email, $password_hash);
-                redirect_to('../login.php?sucess');
+
+                $data = get_usrer_info_by_email($email);
+
+                $_SESSION["student_id"] = $data['id'];
+
+                redirect_to('../parent.php');
+
+               
 
             } else {
                 redirect_to("../register.php?passmatch");

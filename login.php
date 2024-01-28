@@ -20,6 +20,8 @@ require_once __DIR__."/helpers/functions.php";
         <?php genereate_messsage("Sorry! User not found!", "noexist", "faliureBox") ?>
 
         <?php genereate_messsage("Your password was changed successfully! Login now with your new password!", "changed", "successBox") ?>
+
+        <?php genereate_messsage("Congratulations, You are successfilly registered! Login now!", "success", "successBox") ?>
         </div><br>
 
 

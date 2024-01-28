@@ -14,9 +14,6 @@ if (isset($_POST['login'])) {
 
     $_SESSION['login'] = $_POST['login'];
 
-  if(login_student($email, $password)) {
-    redirect_to("../prog.php");
-  }
-
+    login_student($email, $password);
 
 }

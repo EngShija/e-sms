@@ -8,10 +8,11 @@ if (isset($_GET['deleteid'])) {
 
     $id = $_GET['deleteid'];
 
-    delete_user($id);
+    delete_student($id);
 
     redirect_to("../studentsList.php?deleted");
 
 } else {
-    die(mysqli_error($conn));
+    redirect_to("../studentsList.php");
+    // die(mysqli_error($conn));
 }

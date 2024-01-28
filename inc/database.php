@@ -9,7 +9,7 @@ function database()
 
   $databasePassword = '';
 
-  $databaseName = 'myDB';
+  $databaseName = 'e_sms_db';
 
   try {
     $conn = new mysqli($databasehost, $databaseUser, $databasePassword, $databaseName);

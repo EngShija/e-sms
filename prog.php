@@ -4,16 +4,18 @@ session_start();
 include_once "inc/header.php";
 include_once "inc/database.php";
 require_once __DIR__ . "/helpers/functions.php";
-$user_id = id();
 kick_user_to("access.php");
-$data = get_user_info_by_id($user_id);
+$data = get_user_info_by_id(id());
+
+$parent = get_parent_info_by_id(id());
 ?>
 <div class="header">
     <h><span>e-</span>SMS</h>
     <p><a href="home.php">Home</a></p>
     <p><a href="actions-handler/logout-handlerr.php">Logout</a></p>
     <p><a href="profile.php">
-            <?php echo $data['fname']; ?>
+            <?= $data['first_name']; ?>
+            <?= $parent['first_name']; ?>
         </a></p>
     <div class="time">
         <?php include_once "./inc/greetings.php" ?>
@@ -77,9 +79,9 @@ $data = get_user_info_by_id($user_id);
     <section class="footer">
         <div class="head">
             <h2>You logged in as
-            <?= $data['fname'] ?>
-            <?= $data['mname'] ?>
-            <?= $data['lname'] ?>
+            <?= $data['first_name'] ?>
+            <?= $data['middle_name'] ?>
+            <?= $data['last_name'] ?>
         </h2>
         <h3>Developed and published by Eng. Shija</h3>
         <h3>Vist us and follow us</h3>

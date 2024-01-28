@@ -3,8 +3,8 @@ session_start();
 include_once "inc/header.php";
 include_once "inc/database.php";
 require_once __DIR__ . "/helpers/functions.php";
-$user_id = $_SESSION['user_id'];
-$data = get_user_info_by_id($user_id);
+kick_user_to("access.php");
+$data = get_user_info_by_id(id());
 ?>
 
 
@@ -30,20 +30,20 @@ $data = get_user_info_by_id($user_id);
                     enctype="multipart/form-data">
                     <br>
 
-                    <input name="ufname" type="text" placeholder="First Name" value="<?= $data['fname'] ?>"
+                    <input name="ufname" type="text" placeholder="First Name" value="<?= $data['first_name'] ?>"
                         required><br><br>
 
                     <input type="text" name="umname" placeholder="Middle Name" required
-                        value="<?php echo $data['mname'] ?>"><br><br>
+                        value="<?= $data['middle_name'] ?>"><br><br>
 
                     <input type="text" placeholder="Last Name" name="ulname" required
-                        value="<?= $data['lname'] ?>"><br><br>
+                        value="<?= $data['last_name'] ?>"><br><br>
 
                     <input type="text" name="uaddress" placeholder="Physical address" required
-                        value="<?= $data['physicalAddress'] ?>"><br><br>
+                        value="<?= $data['physical_address'] ?>"><br><br>
 
                     <input type="date" name="ubirth" placeholder="Date of birth" required
-                        value="<?= $data['birth_date'] ?>"><br><br>
+                        value="<?= $data['DOB'] ?>"><br><br>
 
                     Gender:
                     <input type="radio" value="Male" name="ugender" style="height: 20px; width: 20px;" required>Male
@@ -70,9 +70,9 @@ $data = get_user_info_by_id($user_id);
 <section class="footer">
         <div class="head">
             <h2>You logged in as
-            <?= $data['fname'] ?>
-            <?= $data['mname'] ?>
-            <?= $data['lname'] ?>
+            <?= $data['first_name'] ?>
+            <?= $data['middle_name'] ?>
+            <?= $data['last_name'] ?>
         </h2>
         <h3>Developed and published by Eng. Shija</h3>
         <h3>Vist us and follow us</h3>

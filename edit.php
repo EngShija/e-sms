@@ -25,7 +25,11 @@ if (isset($_GET['editid'])) {
 
 <div class="container">
     <div class="MyLoginForm">
+    <div class="admintools">
+        <li><a href="addParent.php">Add parent</a></li>
+        </div>
         <div class="inlineForm">
+
 
             <fieldset>
                 <legend><img src="images/avatar.jpeg"></legend>
@@ -33,19 +37,19 @@ if (isset($_GET['editid'])) {
                     <br>
 
                     <input name="ufname" type="text" placeholder="First Name" required
-                        value="<?= $data['fname'] ?>"><br><br>
+                        value="<?= $data['first_name'] ?>"><br><br>
 
                     <input type="text" name="umname" placeholder="Middle Name" required
-                        value="<?= $data['mname'] ?>"><br><br>
+                        value="<?= $data['middle_name'] ?>"><br><br>
 
                     <input type="text" placeholder="Last Name" name="ulname" required
-                        value="<?= $data['lname'] ?>"><br><br>
+                        value="<?= $data['last_name'] ?>"><br><br>
 
                     <input type="text" name="uaddress" placeholder="Physical address" required
-                        value="<?= $data['physicalAddress'] ?>"><br><br>
+                        value="<?= $data['physical_address'] ?>"><br><br>
 
                     <input type="date" name="ubirth" placeholder="Date of birth" required
-                        value="<?= $data['birth_date'] ?>"><br><br>
+                        value="<?= $data['DOB'] ?>"><br><br>
 
                     Gender:
                     <input type="radio" value="Male" name="ugender" style="height: 20px; width: 20px;" required>Male
@@ -53,7 +57,7 @@ if (isset($_GET['editid'])) {
                         required>Female<br><br>
                     </span><br>
                     <input type="text" name="uRegNo" placeholder="Registration number" required
-                        value="<?= $data['RegNo'] ?>"><br><br>
+                        value="<?= $data['reg_num'] ?>"><br><br>
                     <input type="number" name="uphone" placeholder="Phone number" required
                         value="<?= $data['phone'] ?>"><br><br>
 
