@@ -32,6 +32,7 @@ if (isset($_GET['editid'])) {
 
 
             <fieldset>
+              
                 <legend><img src="images/avatar.jpeg"></legend>
                 <form name="myForm" method="POST" action="config/edit_config.php" enctype="multipart/form-data">
                     <br>
@@ -64,17 +65,9 @@ if (isset($_GET['editid'])) {
                     <input type="email" name="uemail" placeholder="E-mail address" required
                         value="<?= $data['email'] ?>"><br><br>
 
-                    <select name="role">
-                        <option>User Role</option>
-                        <option value="student">Student</option>
-                        <option value="parent">Parent</option>
-                        <option value="teacher">Teacher</option>
-                        <option value="assitant_admin">Assistant Admin</option>
-                    </select><br>
-
                     <span class="submit"><br>
                         <input type="submit" name="update" value="Update"
-                            style="font-size: 20px; color: white; border: 2px solid blue; border-radius: 30px; background: blue;">
+                            style="font-size: 20px; color: white; border: 2px solid blue; border-radius: 30px; background: blue; width: 100%;">
                     </span>
         </div>
         </form>

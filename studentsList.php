@@ -34,20 +34,13 @@ require_once __DIR__ . "/helpers/functions.php";
     <table border="2">
         <tr>
             <th>S/N</th>
-            <th>RegNumber</th>
-            <th>FirstName</th>
-            <th>MiddleName</th>
-            <th>LastName</th>
-            <th>Gender</th>
-            <th>DOB</th>
-            <th>PhysicalAddress</th>
-            <th>Phone</th>
-            <th>Email</th>
+            <th>Student's Name</th>
             <th>Edit</th>
             <th>Delete</th>
         </tr>
 
         <tr>
+
             <?php $counter = 1 ?>
             <?php foreach (student() as $user): ?>
 
@@ -55,31 +48,11 @@ require_once __DIR__ . "/helpers/functions.php";
                     <?= $counter ?>
                 </td>
                 <td>
-                    <?= $user['reg_num'] ?>
-                </td>
-                <td>
-                    <?= $user['first_name'] ?>
-                </td>
-                <td>
-                    <?= $user['middle_name'] ?>
-                </td>
-                <td>
-                    <?= $user['last_name'] ?>
-                </td>
-                <td>
-                    <?= $user['gender'] ?>
-                </td>
-                <td>
-                    <?= $user['DOB'] ?>
-                </td>
-                <td>
-                    <?= $user['physical_address'] ?>
-                </td>
-                <td>
-                    <?= $user['phone'] ?>
-                </td>
-                <td>
-                    <?= $user['email'] ?>
+                <a href="student-card.php?student-id=<?= $user['id'] ?>">
+                <?= $user['first_name'] ?>
+                <?= $user['middle_name'] ?>
+                <?= $user['last_name'] ?>
+                </a>
                 </td>
 
                 <td class="editbtn"><a href="edit.php?editid=<?= $user['id'] ?>"><img src="images/edit.png"></a>

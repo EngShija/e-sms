@@ -7,7 +7,6 @@ require_once __DIR__ . "/helpers/functions.php";
 kick_user_to("access.php");
 $data = get_user_info_by_id(id());
 
-$parent = get_parent_info_by_id(id());
 ?>
 <div class="header">
     <h><span>e-</span>SMS</h>
@@ -15,7 +14,6 @@ $parent = get_parent_info_by_id(id());
     <p><a href="actions-handler/logout-handlerr.php">Logout</a></p>
     <p><a href="profile.php">
             <?= $data['first_name']; ?>
-            <?= $parent['first_name']; ?>
         </a></p>
     <div class="time">
         <?php include_once "./inc/greetings.php" ?>

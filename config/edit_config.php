@@ -11,8 +11,8 @@ $gender = $_POST['ugender'];
 $phone = $_POST['uphone'];
 $email = $_POST['uemail'];
 $RegNo = $_POST['uRegNo'];
-$data = get_usrer_info_by_email($email);
-$user_id = $data['id'];
+
+$user_id = $_SESSION['std_id'];
 
 
 if (get_user_info_by_id($user_id)) {

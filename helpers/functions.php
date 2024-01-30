@@ -61,7 +61,7 @@ function verify_hashed_password(string $entered_password, string $stored_passwor
     return password_verify($entered_password, $stored_password);
 }
 
-function get_usrer_info_by_email(string $email)
+function get_user_info_by_email(string $email)
 {
     $result = database()->query("SELECT * FROM student WHERE email = '$email'");
     return $result->fetch_assoc();
@@ -86,7 +86,7 @@ function student()
 
 function login_student(string $email, string $password)
 {
-    $user = get_usrer_info_by_email($email);
+    $user = get_user_info_by_email($email);
 
     if ($user) {
         if (verify_hashed_password($password, $user['password'])) {
@@ -200,6 +200,12 @@ function get_parent_info_by_id($user_id)
 {
     $result = database()->query("SELECT * FROM parent WHERE student_id = '$user_id'");
     return $result->fetch_assoc();
+}
+
+function update_parent($user_id, $fname, $mname, $lname, $birth,  $phone, $email)
+{
+    $query = "UPDATE parent SET first_name = '$fname', middle_name = '$mname', last_name = '$lname', DOB = '$birth', phone = $phone, email = '$email'  WHERE student_id =$user_id";
+    return database()->query($query);
 }
 
 

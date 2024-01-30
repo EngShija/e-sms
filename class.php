@@ -19,7 +19,7 @@ session_start();
                     <input type="number" name="studentNumber" placeholder="Student's number in Class"><br><br>
                     <input type="number" name="subName" placeholder="Number of subjects"><br><br>
                     <div class="submit">
-                        <input name = "addclass" type="submit" value="Add" style="background: blue;  height: font-size: 20px; color: white; border: 2px solid blue; border-radius: 30px; width: 200px;">
+                        <input name = "addclass" type="submit" value="Add">
                         <br>
                     </div>
                     <div class="submit">

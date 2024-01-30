@@ -4,7 +4,7 @@ include_once "inc/header.php";
 include_once "inc/database.php";
 require_once __DIR__ . "/helpers/functions.php";
 kick_user_to("access.php");
-$data = get_user_info_by_id(id());
+$data = get_parent_info_by_id(id());
 ?>
 
 
@@ -12,7 +12,7 @@ $data = get_user_info_by_id(id());
     <h><span>e-</span>SMS</h>
     <p><a href="home.php">Home</a></p>
     <p><a href="prog.php">Dashboard</a></p>
-    <p><a href="profile.php">Profile</a></p>
+    <p><a href="profile.php">Profile</a></p> 
     <div class="time">
         <?php include_once "./inc/greetings.php" ?>
     </div>
@@ -26,31 +26,32 @@ $data = get_user_info_by_id(id());
 
             <fieldset>
                 <legend><img src="images/avatar.jpeg"></legend>
-                <div class="prof">
-                    <li><a href="editParent.php">Edit Parent info</a></li>
-                </div>
-                <form name="myForm" method="POST" action="actions-handler/update_handler.php" enctype="multipart/form-data">
+                <form name="myForm" method="POST" action="actions-handler/editParent-handler.php"
+                    enctype="multipart/form-data">
                     <br>
 
-                    <input name="ufname" type="text" placeholder="First Name" value="<?= $data['first_name'] ?>" required><br><br>
+                    <input name="ufname" type="text" placeholder="First Name" value="<?= $data['first_name'] ?>"
+                        required><br><br>
 
-                    <input type="text" name="umname" placeholder="Middle Name" required value="<?= $data['middle_name'] ?>"><br><br>
+                    <input type="text" name="umname" placeholder="Middle Name" required
+                        value="<?= $data['middle_name'] ?>"><br><br>
 
-                    <input type="text" placeholder="Last Name" name="ulname" required value="<?= $data['last_name'] ?>"><br><br>
+                    <input type="text" placeholder="Last Name" name="ulname" required
+                        value="<?= $data['last_name'] ?>"><br><br>
 
-                    <input type="text" name="uaddress" placeholder="Physical address" required value="<?= $data['physical_address'] ?>"><br><br>
+                    <input type="number" name="uphone" placeholder="Phone number" required
+                        value="<?= $data['phone'] ?>"><br><br>
 
-                    <input type="date" name="ubirth" placeholder="Date of birth" required value="<?= $data['DOB'] ?>"><br><br>
+                    <input type="email" name="uemail" placeholder="E-mail address" required
+                        value="<?= $data['email'] ?>"><br><br>
+                    <input type="date" name="ubirth" placeholder="Date of birth" required
+                        value="<?= $data['DOB'] ?>"><br><br>
 
-                    Gender:
-                    <input type="radio" value="Male" name="ugender" style="height: 20px; width: 20px;" required>Male
-                    <input type="radio" value="Female" name="ugender" style="height: 20px; width: 20px;" required>Female<br><br>
-                    </span><br>
-                    <input type="number" name="uphone" placeholder="Phone number" required value="<?= $data['phone'] ?>"><br><br>
-
-                    <input type="email" name="uemail" placeholder="E-mail address" required value="<?= $data['email'] ?>"><br><br>
+                    <input type="text" name="uemail" placeholder="Relationship" required
+                        value="<?= $data['relationship'] ?>"><br><br>
                     <span class="submit"><br>
-                        <input type="submit" name="update" value="Submit Changes" style="font-size: 20px; color: white; border: 2px solid blue; border-radius: 30px; background: blue;">
+                        <input type="submit" name="update" value="Submit Changes"
+                            style="font-size: 20px; color: white; border: 2px solid blue; border-radius: 30px; background: blue;">
                     </span>
         </div>
         </form>
@@ -61,8 +62,8 @@ $data = get_user_info_by_id(id());
 </div>
 </div>
 <section class="footer">
-    <div class="head">
-        <h2>You logged in as
+        <div class="head">
+            <h2>You logged in as
             <?= $data['first_name'] ?>
             <?= $data['middle_name'] ?>
             <?= $data['last_name'] ?>

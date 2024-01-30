@@ -1,7 +1,7 @@
 <?php
 session_start();
-include_once "inc/header.php";
-include_once "inc/database.php";
+include_once "../inc/header.php";
+include_once "../inc/database.php";
 require_once __DIR__ . "/../helpers/functions.php";
 //defining all variables and set to empty values
 $fname = $mname = $lname = $address = $birth_date = $gender = $phone = $email = $password = $password2 = "";
@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) {
 
         $password_hash = hash_password($password);
 
-        $student_id = $_SESSION['std_id'];
+        $student_id = id();
 
 
         //VALIDATION.
@@ -66,7 +66,7 @@ if (isset($_POST['submit'])) {
             if (verify_password($password, $password2)) {
 
                 register_parent($fname, $mname, $lname, $phone, $email, $birth_date, $relationship,  $password_hash, $student_id);
-                redirect_to('../edit.php?parentAdded');
+                redirect_to('../addParent.php?parentAdded');
 
             } else {
                 redirect_to("../addParent.php?passmatch");

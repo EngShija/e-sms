@@ -26,7 +26,7 @@ require_once __DIR__ . "/helpers/functions.php";
                 <legend>
                     <h3>Fill parent's info</h3>
                 </legend>
-                <form name="myForm" method="POST" action="adminTools/addParent-handler.php"
+                <form name="myForm" method="POST" action="actions-handler/addParent-handler.php"
                     enctype="multipart/form-data">
                     <?php genereate_messsage("*Passwords did not match", "passmatch", "errorMsg") ?>
                     <input name="fname" type="text" placeholder="First Name"><br>

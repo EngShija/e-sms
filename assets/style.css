@@ -196,18 +196,30 @@ body {
     text-align: left;
     padding: 15px 15px;
 }
+.prof h1{
+    display: inline-flex;
+    font-size: 30px;
+    color: blue;
+    margin: 0 auto;
+}
 .prof h3{
     display: inline-flex;
     font-size: 20px;
+}
+.prof h4{
+    display: inline-flex;
 }
 .prof p{
     display: inline-flex;
     font-size: 18px;
     font-weight: bolder;
+    color: blue;
 }
 .prof li{
     list-style: none;
     text-align: center;
+    display: inline-flex;
+    margin: 12px;
 }
 .prof li a{
     color: blue;
@@ -364,6 +376,7 @@ fieldset small a{
    font-style: italic;
    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+
 .inlineForm{
     display: inline-flex;
    
@@ -444,6 +457,7 @@ table td{
 }
 td a{
     text-decoration: none;
+    color: blue;
     
 }
 .editbtn{
@@ -482,4 +496,11 @@ td a{
 select{
     padding: 10px 8px;
     border-radius: 10px;
+}
+
+.delete{
+    float: right;
+}
+.delete li a{
+    color: red;
 }

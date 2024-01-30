@@ -83,6 +83,7 @@ $data = get_user_info_by_id(id());
                 </p>
                 <hr>
                 <li><a href="update.php">Edit Your Details</a></li>
+                <li><a href="addParent.php">Add Parent</a></li>
 
             </div>
         </div>

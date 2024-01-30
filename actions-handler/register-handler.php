@@ -74,11 +74,7 @@ if (isset($_POST['submit'])) {
 
                 register($fname, $mname, $lname, $address, $birth_date, $gender, $RegNo, $phone, $email, $password_hash);
 
-                $data = get_usrer_info_by_email($email);
-
-                $_SESSION["student_id"] = $data['id'];
-
-                redirect_to('../parent.php');
+                redirect_to('../login.php');
 
                
 
