@@ -2,6 +2,7 @@
 session_start();
 include_once "./inc/header.php"; 
 require_once __DIR__."/helpers/functions.php";
+kick_user_to("access.php");
 if (isset($_GET['student-id'])) {
     $id = $_GET['student-id'];
     $student = get_user_info_by_id($id);
@@ -26,6 +27,8 @@ if (isset($_GET['student-id'])) {
             <h1><?= $student['last_name'] ?></h1><br>
             <h3>Registration number:</h3>
             <p><?= $student['reg_num'] ?><br><hr>
+            <h3>Gender:</h3>
+            <p><?= $student['gender'] ?><br><hr>
             <h3>Phone number:</h3>
             <p><?= $student['phone'] ?><br><hr>
             <h3>Email:</h3>

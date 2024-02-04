@@ -3,6 +3,7 @@ session_start();
 include_once "inc/header.php";
 include_once "inc/database.php";
 require_once __DIR__ . "/helpers/functions.php";
+kick_user_to("access.php");
 ?>
 
 <div class="header">
@@ -35,8 +36,6 @@ require_once __DIR__ . "/helpers/functions.php";
         <tr>
             <th>S/N</th>
             <th>Student's Name</th>
-            <th>Edit</th>
-            <th>Delete</th>
         </tr>
 
         <tr>
@@ -53,14 +52,7 @@ require_once __DIR__ . "/helpers/functions.php";
                 <?= $user['middle_name'] ?>
                 <?= $user['last_name'] ?>
                 </a>
-                </td>
-
-                <td class="editbtn"><a href="edit.php?editid=<?= $user['id'] ?>"><img src="images/edit.png"></a>
-                </td>
-                <td class="deletebtn"><a href="config/delete.php?deleteid=<?= $user['id'] ?>" ><img
-                            src="images/delete.jpeg"></a>
-                </td>
-
+            </td>
             </tr>
             <?php $counter++ ?>
         <?php endforeach; ?>

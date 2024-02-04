@@ -26,22 +26,16 @@ require_once __DIR__."/helpers/functions.php";
         <fieldset>
             <legend><img src="images/avatar.jpeg"></legend>
 
-            <form action="actions-handler/admin_login-handler.php" name="myForm" onsubmit="return FormValidation()"
+            <form action="actions-handler/admin-login-handler.php" name="myForm"
                 method="POST">
                 <input type="text" name="username" placeholder="Admin's username"><br><br>
                 <input type="password" name="password" placeholder="Password"><br><br>
-                <div class="submit">
-                    <input name="login" type="submit" value="login"
-                        style="background: blue; font-size: 20px; color: white; border: 2px solid blue; border-radius: 30px; width: 200px; width: 100%;">
-
-                    <br>
-                </div>
+                <span class="submit">
+                        <button type="submit" value="login"name="login">Login</button>
+                    </span>
                 <a href="forgot_password.php" style="text-decoration: none;">
                     <h3>Forgot Password!</h3>
                 </a>
-                <div class="row"></div>
-               
-                <div class="submit">
             </form>
         </fieldset>
     </div>

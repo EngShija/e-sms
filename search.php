@@ -1,7 +1,9 @@
 <?php
+session_start();
 include_once "inc/header.php";
 require_once __DIR__ . "/helpers/functions.php";
 require_once __DIR__ . "/inc/database.php";
+kick_user_to("access.php");
 if (isset($_POST['search'])) {
     $reg_num = $_POST['serch_term'];
     $first_name = $_POST['serch_term'];
@@ -32,17 +34,7 @@ if (isset($_POST['search'])) {
 <table border="2">
     <tr>
         <th>S/N</th>
-        <th>RegNumber</th>
-        <th>FirstName</th>
-        <th>MiddleName</th>
-        <th>LastName</th>
-        <th>Gender</th>
-        <th>DOB</th>
-        <th>PhysicalAddress</th>
-        <th>Phone</th>
-        <th>Email</th>
-        <th>Edit</th>
-        <th>Delete</th>
+        <th>Student's Name</th>
     </tr>
 
     <tr>
@@ -53,38 +45,12 @@ if (isset($_POST['search'])) {
                 <?= $counter ?>
             </td>
             <td>
-                <?= $user['reg_num'] ?>
-            </td>
-            <td>
+            <a href="student-card.php?student-id=<?= $user['id'] ?>">
                 <?= $user['first_name'] ?>
-            </td>
-            <td>
                 <?= $user['middle_name'] ?>
-            </td>
-            <td>
                 <?= $user['last_name'] ?>
             </td>
-            <td>
-                <?= $user['gender'] ?>
-            </td>
-            <td>
-                <?= $user['DOB'] ?>
-            </td>
-            <td>
-                <?= $user['physical_address'] ?>
-            </td>
-            <td>
-                <?= $user['phone'] ?>
-            </td>
-            <td>
-                <?= $user['email'] ?>
-            </td>
 
-            <td class="editbtn"><a href="edit.php?editid=<?= $user['id'] ?>"><img src="images/edit.png"></a>
-            </td>
-            <td class="deletebtn"><a href="config/delete.php?deleteid=<?= $user['id'] ?>"><img
-                        src="images/delete.jpeg"></a>
-            </td>
         </tr>
         <?php $counter++; ?>
     <?php endforeach; ?>

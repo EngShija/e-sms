@@ -1,5 +1,9 @@
 <?php
+session_start();
 include_once "inc/header.php";
+include_once "inc/database.php";
+require_once __DIR__ . "/helpers/functions.php";
+kick_user_to("access.php");
 ?>
 
 
@@ -24,7 +28,7 @@ include_once "inc/header.php";
            <li>  <a href="announce.php">Upload Announcement</a></li>
            <li>  <a href="techerList.php">View Teachers list</a></li>
            <li>  <a href="studentsList.php">Students</a></li>
-           <li>  <a href="asadmin.php">Add assistant Admin</a></li>
+           <li>  <a href="admin-registration.php">Add assistant Admin</a></li>
         </div>
           
         </div>

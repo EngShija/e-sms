@@ -63,8 +63,7 @@ require_once __DIR__ . "/helpers/functions.php";
                     <input type="password" placeholder="Password" name="password1"><br><br>
                     <input type="password" placeholder="Confirm password" name="password2"><br><br>
                     <span class="submit">
-                        <input type="submit" name="submit" value="Upload personal info"
-                            style="font-size: 20px; color: white; border: 2px solid blue; border-radius: 30px; background: blue;">
+                        <button type="submit" value="Submit"name="submit">Submit</button>
                     </span>
             </div>
             </form>

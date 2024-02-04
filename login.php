@@ -34,12 +34,12 @@ require_once __DIR__."/helpers/functions.php";
                 method="POST">
                 <input type="text" name="username" placeholder="Email"><br><br>
                 <input type="password" name="password" placeholder="Password"><br><br>
-                <div class="submit">
-                    <input name="login" type="submit" value="login"
-                        style="background: blue; font-size: 20px; color: white; border: 2px solid blue; border-radius: 30px; width: 200px; width: 100%;">
+                <span class="submit">
+                        <button type="submit" value="login"name="login">Login</button>
+                    </span>
 
+               
                     <br>
-                </div>
                 <a href="forgot_password.php" style="text-decoration: none;">
                     <h3>Forgot Password!</h3>
                 </a>

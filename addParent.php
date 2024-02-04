@@ -1,8 +1,8 @@
 <?php
 session_start();
 require_once "inc/header.php";
-
 require_once __DIR__ . "/helpers/functions.php";
+kick_user_to("access.php");
 ?>
 
 <div class="header">
@@ -50,8 +50,7 @@ require_once __DIR__ . "/helpers/functions.php";
                     <input type="password" placeholder="Password" name="password1"><br><br>
                     <input type="password" placeholder="Confirm password" name="password2"><br><br>
                     <span class="submit">
-                        <input type="submit" name="submit" value="Upload personal info"
-                            style="font-size: 20px; color: white; border: 2px solid blue; border-radius: 30px; background: blue;">
+                        <button type="submit" value="upload"name="submit">Upload</button>
                     </span>
         </div>
         </form>

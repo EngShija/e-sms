@@ -49,8 +49,8 @@ $data = get_user_info_by_id(id());
                     <input type="number" name="uphone" placeholder="Phone number" required value="<?= $data['phone'] ?>"><br><br>
 
                     <input type="email" name="uemail" placeholder="E-mail address" required value="<?= $data['email'] ?>"><br><br>
-                    <span class="submit"><br>
-                        <input type="submit" name="update" value="Submit Changes" style="font-size: 20px; color: white; border: 2px solid blue; border-radius: 30px; background: blue;">
+                    <span class="submit">
+                        <button type="submit" value="Submit"name="update">Submit Changes</button>
                     </span>
         </div>
         </form>

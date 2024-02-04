@@ -34,6 +34,9 @@ if (isset($_GET['editid'])) {
             <fieldset>
               
                 <legend><img src="images/avatar.jpeg"></legend>
+                <div class="prof">
+                    <li><a href="editParent.php">Edit Parent info</a></li>
+                </div>
                 <form name="myForm" method="POST" action="config/edit_config.php" enctype="multipart/form-data">
                     <br>
 
@@ -64,11 +67,10 @@ if (isset($_GET['editid'])) {
 
                     <input type="email" name="uemail" placeholder="E-mail address" required
                         value="<?= $data['email'] ?>"><br><br>
-
-                    <span class="submit"><br>
-                        <input type="submit" name="update" value="Update"
-                            style="font-size: 20px; color: white; border: 2px solid blue; border-radius: 30px; background: blue; width: 100%;">
+                        <span class="submit">
+                        <button type="submit" value="Update"name="update">Update</button>
                     </span>
+
         </div>
         </form>
         </fieldset>

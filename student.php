@@ -1,7 +1,10 @@
 <?php
+session_start();
 require_once "inc/header.php";
 
 require_once __DIR__ . "/helpers/functions.php";
+
+kick_user_to("access.php");
 ?>
 
 <div class="header">

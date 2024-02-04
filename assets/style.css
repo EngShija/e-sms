@@ -18,7 +18,7 @@ body {
 .header {
     /* background: linear-gradient(gray, rgb(51, 51, 109)); */
     color: blue;
-    border-bottom: 3px solid rgb(213, 215, 253);
+    border-bottom: 3px solid blue;
     width: 100%;
     height: fit-content;
     flex-wrap: wrap;
@@ -125,11 +125,14 @@ body {
     box-shadow: 0 0 10px 0 rgb(39, 5, 5);
     background: rgb(57, 57, 168);
 }
-
-.submit input {
-    background: blue;
+.submit button{
+    background: rgb(0, 0, 255);
+    border: none;
+    width: 100%;
+    padding: 8px 16px;
+    color: #fff;
+    border-radius: 18px;
 }
-
 .row {
     display: inline-flex;
 }
@@ -201,6 +204,7 @@ body {
     font-size: 30px;
     color: blue;
     margin: 0 auto;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 .prof h3{
     display: inline-flex;
@@ -212,7 +216,6 @@ body {
 .prof p{
     display: inline-flex;
     font-size: 18px;
-    font-weight: bolder;
     color: blue;
 }
 .prof li{
@@ -329,7 +332,7 @@ body {
 
 .footer {
     background: rgba(0, 0, 0, 0.5);
-    border-top: 3px solid rgb(0, 17, 255);
+    border-top: 3px solid blue;
     color: white;
 }
 
@@ -454,11 +457,15 @@ table th{
 }
 table td{
     font-size: 14px;
+    text-align: left;
 }
 td a{
     text-decoration: none;
-    color: blue;
+    color: #fff;
     
+}
+td a:hover{
+    color: blue;
 }
 .editbtn{
     padding: 2px 3px;
