@@ -28,7 +28,7 @@ require_once __DIR__."/helpers/functions.php";
 
             <form action="actions-handler/admin-login-handler.php" name="myForm"
                 method="POST">
-                <input type="text" name="username" placeholder="Admin's username"><br><br>
+                <input type="text" name="username" placeholder="Admin's username" autofocus><br><br>
                 <input type="password" name="password" placeholder="Password"><br><br>
                 <span class="submit">
                         <button type="submit" value="login"name="login">Login</button>

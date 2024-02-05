@@ -34,37 +34,22 @@ if (isset($_POST['submit'])) {
 
         //VALIDATION.
 
-        if (empty($fname)) {
-            redirect_to(" ../register.php?fnamecheck");
-        }
+        required_field($fname, " ../register.php?fnamecheck");
 
-        if (empty($mname)) {
-            redirect_to(" ../register.php?mnamecheck");
-        }
+        required_field($mname, " ../register.php?mnamecheck");
 
-        if (empty($lname)) {
-            redirect_to(" ../register.php?lnamecheck");
-        }
+        required_field($lname, " ../register.php?lnamecheck");
 
-        if (empty($address)) {
-            redirect_to(" ../register.php?addresscheck");
-        }
+        required_field($address, "  ../register.php?addresscheck");
 
-        if (empty($birth_date)) {
-            redirect_to(" ../register.php?birthcheck");
-        }
+        required_field($birth, " ../register.php?birthcheck");
 
-        if (empty($gender)) {
-            redirect_to("../register.php?gendercheck");
-        }
+        required_field($gender, " ../register.php?gendercheck");
 
-        if (empty($phone)) {
-            redirect_to("../register.php?phonecheck");
-        }
+        required_field($phone, " ../register.php?phonecheck");
 
-        if (empty($email)) {
-            redirect_to("../register.php?emailcheck");
-        }
+        required_field($email, "../register.php?emailcheck");
+
 
         if (is_user_present($email, $phone)) {
             redirect_to("../register.php?userPresent");

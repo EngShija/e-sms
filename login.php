@@ -32,7 +32,7 @@ require_once __DIR__."/helpers/functions.php";
 
             <form action="./actions-handler/login-handler.php" name="myForm" onsubmit="return FormValidation()"
                 method="POST">
-                <input type="text" name="username" placeholder="Email"><br><br>
+                <input type="text" name="username" placeholder="Email" autofocus><br><br>
                 <input type="password" name="password" placeholder="Password"><br><br>
                 <span class="submit">
                         <button type="submit" value="login"name="login">Login</button>

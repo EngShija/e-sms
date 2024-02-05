@@ -34,30 +34,20 @@ if (isset($_POST['submit'])) {
 
         //VALIDATION.
 
-        if (empty($fname)) {
-            redirect_to(" ../addParent.php?fnamecheck");
-        }
+        required_field($fname, " ../addParent.php?fnamecheck");
 
-        if (empty($mname)) {
-            redirect_to(" ../addParent.php?mnamecheck");
-        }
+        required_field($mname, " ../addParent.php?mnamecheck");
 
-        if (empty($lname)) {
-            redirect_to(" ../addParent.php?lnamecheck");
-        }
+        required_field($lname, " ../addParent.php?lnamecheck");
 
-        if (empty($phone)) {
-            redirect_to("../addParent.php?phonecheck");
-        }
+        required_field($phone, " ../addParent.php?phonecheck");
 
-        if (empty($email)) {
-            redirect_to("../addParent.php?emailcheck");
-        }
+        required_field($email, " ../addParent.php?emailcheck");
 
+        required_field($relationship, " ../addParent.php?relationcheck");
 
-        if (empty($relationship)) {
-            redirect_to("../addParent.php?relationcheck");
-        }
+        required_field($fname, " ../addParent.php?fnamecheck");
+
 
         if (parent_exist($student_id)) {
             redirect_to("../addParent.php?parentPresent");

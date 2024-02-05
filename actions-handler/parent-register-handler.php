@@ -32,30 +32,17 @@ if (isset($_POST['submit'])) {
 
         //VALIDATION.
 
-        if (empty($fname)) {
-            redirect_to(" ../parent.php?fnamecheck");
-        }
+        required_field($fname, "../parent.php?fnamecheck");
 
-        if (empty($mname)) {
-            redirect_to(" ../parent.php?mnamecheck");
-        }
+        required_field($mname, "../parent.php?mnamecheck");
 
-        if (empty($lname)) {
-            redirect_to(" ../parent.php?lnamecheck");
-        }
+        required_field($lname, "../parent.php?lnamecheck");
 
-        if (empty($phone)) {
-            redirect_to("../parent.php?phonecheck");
-        }
+        required_field($phone, "../parent.php?phonecheck");
 
-        if (empty($email)) {
-            redirect_to("../parent.php?emailcheck");
-        }
+        required_field($email, "../parent.php?emailcheck");
 
-
-        if (empty($relationship)) {
-            redirect_to("../parent.php?relationcheck");
-        }
+        required_field($relationship, "../parent.php?relationcheck");
 
         if (parent_exist($student_id)) {
             redirect_to("../parent.php?parentPresent");
@@ -71,6 +58,6 @@ if (isset($_POST['submit'])) {
             }
         }
     }else{
-        echo "Error occured";
+        redirect_to("../parent.php?error");
     }
 }

@@ -31,25 +31,20 @@ if (isset($_POST['submit'])) {
 
         //VALIDATION.
 
-        if (empty($fname)) {
-            redirect_to(" ../teacher.php?fnamecheck");
-        }
+        required_field($fname, " ../teacher.php?fnamecheck");
 
-        if (empty($lname)) {
-            redirect_to(" ../teacher.php?lnamecheck");
-        }
+        required_field($lname, " ../teacher.php?lnamecheck");
 
-        if (empty($DOB)) {
-            redirect_to(" ../teacher.php?addresscheck");
-        }
+        required_field($DOB, " ../teacher.php?birthcheck");
 
-        if (empty($phone)) {
-            redirect_to(" ../teacher.php?birthcheck");
-        }
+        required_field($phone, " ../teacher.php?phonecheck");
 
-        if (empty($email)) {
-            redirect_to("../teacher.php?emailcheck");
-        }
+        required_field($email, "../teacher.php?emailcheck");
+
+        required_field($joining_date, "../teacher.php?jodcheck");
+
+        required_field($subject_tought, "../teacher.php?subjectcheck");
+
 
         if (is_user_present($email, $phone)) {
             redirect_to("../teacher.php?userPresent");
@@ -65,6 +60,6 @@ if (isset($_POST['submit'])) {
             }
         }
     }else{
-        echo "Error occured";
+       redirect_to("../teacher.php?error");
     }
 }

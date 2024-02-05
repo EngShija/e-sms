@@ -239,6 +239,11 @@ function register_teacher($fname, $mname, $gender, $DOB, $phone, $email, $joinin
   VALUES('$fname', '$mname', '$gender', '$DOB', $phone, '$email', '$joining_date', '$subject_tought', '$password')";
     return database()->query($sql);
 }
+function required_field($field, $redirect_url){
+    if(empty($field)){
+        redirect_to($redirect_url);
+    }
+}
 
 
 

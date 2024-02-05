@@ -29,7 +29,7 @@ require_once __DIR__ . "/helpers/functions.php";
                     enctype="multipart/form-data">
                     <br>
                          <?php genereate_messsage("*Your passwords did not match", "passmatch", "errorMsg") ?><br><br>
-                        <input name="fname" type="text" placeholder="First Name"><br>
+                        <input name="fname" type="text" placeholder="First Name" autofocus><br>
                     <?php genereate_messsage("*First name is empty!", "fnamecheck", "errorMsg") ?>
                     
                     <br>
