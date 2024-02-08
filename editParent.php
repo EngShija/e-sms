@@ -1,5 +1,6 @@
-<?php include_once "./inc/header.php";
+<?php
 session_start();
+include_once "./inc/header.php";
 include_once "inc/header.php";
 include_once "inc/database.php";
 require_once __DIR__ . "/helpers/functions.php";

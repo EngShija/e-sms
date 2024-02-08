@@ -2,6 +2,7 @@
 session_start();
 include_once "./inc/header.php"; 
 require_once __DIR__."/helpers/functions.php";
+$_SESSION['studentId'] = $_GET['student-id'];
 kick_user_to("access.php");
 if (isset($_GET['student-id'])) {
     $id = $_GET['student-id'];

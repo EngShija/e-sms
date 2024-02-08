@@ -1,6 +1,8 @@
 <?php
-
+require_once __DIR__ . "/../inc/header.php";
+require_once __DIR__ . "/../inc/header.php";
 require_once __DIR__ . "/../inc/database.php";
+require_once __DIR__ . "/../inc/header.php";
 
 define("CURRENT_USER_ID", "user_id");
 define("STORED_ID", "id");
@@ -10,7 +12,6 @@ function is_user_present(string $email, int $phone_number)
 {
     $sql = "SELECT * FROM student WHERE email = '$email' OR phone = $phone_number";
     return database()->query($sql)->num_rows > 0;
-
 }
 
 function redirect_to(string $url)
@@ -19,7 +20,8 @@ function redirect_to(string $url)
     exit;
 }
 
-function register($fname, $mname, $lname, $address, $birth_date, $gender, $RegNo, $phone, $email, $password){
+function register($fname, $mname, $lname, $address, $birth_date, $gender, $RegNo, $phone, $email, $password)
+{
 
     $sql = "INSERT INTO student(first_name, middle_name, last_name, physical_address, DOB, gender, reg_num, phone, email,password) 
 
@@ -30,11 +32,11 @@ function register($fname, $mname, $lname, $address, $birth_date, $gender, $RegNo
 function genereate_messsage(string $message, string $query_string, string $class)
 {
     if (isset($_GET[$query_string])) {
-        ?>
+?>
         <small class="<?= $class ?>">
             <?= $message ?><br>
         </small>
-        <?php
+    <?php
     }
 }
 
@@ -85,9 +87,9 @@ function login_student(string $email, string $password)
     if ($user) {
         if (verify_hashed_password($password, $user[PASSWORD])) {
             set_session($user[STORED_ID]);
-            redirect_to('../prog.php');
+            redirect_to('../prog.php?logged');
         } else {
-            redirect_to('../login.php?wrong-cred');
+            redirect_to('../login.php?wrong-cred'); 
         }
     } else {
         redirect_to("../login.php?noexist");
@@ -116,7 +118,6 @@ function update_user_password(string $new_password, int $user_id)
 {
     $sql = ("UPDATE student SET password ='$new_password' WHERE id = $user_id");
     return database()->query($sql);
-
 }
 
 function update_user($user_id, $fname, $mname, $lname, $address, $birth, $gender, $RegNo, $phone, $email)
@@ -125,7 +126,7 @@ function update_user($user_id, $fname, $mname, $lname, $address, $birth, $gender
     return database()->query($query);
 }
 
-function self_user_update($user_id, $fname, $mname, $lname, $address, $birth, $gender, $phone, $email, )
+function self_user_update($user_id, $fname, $mname, $lname, $address, $birth, $gender, $phone, $email,)
 {
     $query = "UPDATE student SET first_name = '$fname', middle_name = '$mname', last_name = '$lname', physical_address = '$address', DOB = '$birth', gender = '$gender', phone = '$phone', email = '$email' WHERE id =$user_id";
     return database()->query($query);
@@ -169,15 +170,15 @@ function set_session(int $user_id)
 function id()
 {
     return isset($_SESSION[CURRENT_USER_ID]) ? $_SESSION[CURRENT_USER_ID] : null;
-
 }
-function search_user($reg_num, $first_name, $middle_name, $last_name, $email, $role){
+function search_user($reg_num, $first_name, $middle_name, $last_name, $email, $role)
+{
     $sql = "SELECT * FROM student WHERE reg_num LIKE '%$reg_num%' OR first_name LIKE '%$first_name%' OR middle_name LIKE '%$middle_name%' OR last_name LIKE '%$last_name%' OR email LIKE '%$email%'";
     $result = database()->query($sql);
     return $result->fetch_all(MYSQLI_ASSOC);
 }
 
-function register_parent($fname, $mname, $lname, $phone, $email, $DOB, $relationship,$password, $student_id,)
+function register_parent($fname, $mname, $lname, $phone, $email, $DOB, $relationship, $password, $student_id,)
 {
     $sql = "INSERT INTO parent(first_name, middle_name, last_name, phone, email, DOB, relationship, password, student_id)
 
@@ -202,7 +203,8 @@ function update_parent($user_id, $fname, $mname, $lname, $birth,  $phone, $email
     return database()->query($query);
 }
 
-function register_admin($username, $password){
+function register_admin($username, $password)
+{
 
     $sql = "INSERT INTO admin(admin_username, password)
 
@@ -239,12 +241,30 @@ function register_teacher($fname, $mname, $gender, $DOB, $phone, $email, $joinin
   VALUES('$fname', '$mname', '$gender', '$DOB', $phone, '$email', '$joining_date', '$subject_tought', '$password')";
     return database()->query($sql);
 }
-function required_field($field, $redirect_url){
-    if(empty($field)){
+function required_field($field, $redirect_url)
+{
+    if (empty($field)) {
         redirect_to($redirect_url);
     }
 }
 
-
-
-
+function sweetAlert($get_string, $alert_head, $message, $class)
+{
+    if (isset($_GET[$get_string])) {
+    ?>
+        <script>
+            swal('<?= $alert_head ?>', '<?= $message ?>', '<?= $class ?>');
+        </script>
+    <?php
+    }
+}
+function sweetAlertSession($session_string, $alert_head, $message, $class)
+{
+    if (isset($_SESSION[$session_string])) { ?>
+        <script>
+            swal('<?= $alert_head ?>', '<?= $message ?>', '<?= $class ?>');
+        </script>
+<?php
+    }
+    unset($_SESSION[$session_string]);
+}

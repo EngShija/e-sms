@@ -1,7 +1,7 @@
 <?php
 session_start();
-include_once "./inc/header.php"; 
-require_once __DIR__."/helpers/functions.php";
+require_once __DIR__ . "/inc/header.php";
+require_once __DIR__ . "/helpers/functions.php";
 ?>
 <div class="header">
     <h><span>e-</span>SMS</h>
@@ -15,13 +15,13 @@ require_once __DIR__."/helpers/functions.php";
 <div class="container">
     <div class="MyLoginForm">
         <div>
-        <?php genereate_messsage("Username or password is invalid", "wrong-cred", "faliureBox") ?>
+<?php sweetAlert('wrong-cred', 'Ooops!', 'Wrong email or password!', 'error') ?>
+<?php sweetAlert('noexist', 'Ooops!', 'A user may not found!', 'error') ?>
+<?php sweetAlert('logout', 'Success!', 'You logged out!', 'warning') ?>
+<?php sweetAlertSession('change', 'Success!',  'Your password was changed successfully! Login now with your new password!', 'success' ) ?>
+<?php sweetAlertSession('status', 'Success!',  'You logged in successfully!', 'success' ) ?>
 
-        <?php genereate_messsage("Sorry! User not found!", "noexist", "faliureBox") ?>
 
-        <?php genereate_messsage("Your password was changed successfully! Login now with your new password!", "changed", "successBox") ?>
-
-        <?php genereate_messsage("Congratulations, You are successfilly registered! Login now!", "success", "successBox") ?>
         </div><br>
 
 
@@ -30,16 +30,15 @@ require_once __DIR__."/helpers/functions.php";
 
             <small><a href="admin_login.php">Admin</a></small><br><br>
 
-            <form action="./actions-handler/login-handler.php" name="myForm" onsubmit="return FormValidation()"
-                method="POST">
-                <input type="text" name="username" placeholder="Email" autofocus><br><br>
-                <input type="password" name="password" placeholder="Password"><br><br>
+            <form action="./actions-handler/login-handler.php" name="myForm" onsubmit="return FormValidation()" method="POST">
+                <input type="email" name="username" placeholder="Email" autofocus required><br><br>
+                <input type="password" name="password" placeholder="Password" required><br><br>
                 <span class="submit">
-                        <button type="submit" value="login"name="login">Login</button>
-                    </span>
+                    <button type="submit" value="login" name="login">Login</button>
+                </span>
 
-               
-                    <br>
+
+                <br>
                 <a href="forgot_password.php" style="text-decoration: none;">
                     <h3>Forgot Password!</h3>
                 </a>

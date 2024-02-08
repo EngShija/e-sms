@@ -4,6 +4,8 @@ require_once "../helpers/functions.php";
 //defining all variables and set to empty values
  $fname = $mname = $lname = $address = $birth_date = $gender = $phone = $email = $password = $password2 = "";
 
+ $_SESSION['status'] = $_POST['submit'];
+
 
 if (isset($_POST['submit'])) {
     if (is_request_method_post()) {
@@ -23,6 +25,8 @@ if (isset($_POST['submit'])) {
         $phone = validate_inputs($_POST['phone']);
 
         $email = validate_inputs($_POST['email']);
+
+        $birth = validate_inputs($_POST['birth']);
 
         $RegNo = null;
 
@@ -59,7 +63,7 @@ if (isset($_POST['submit'])) {
 
                 register($fname, $mname, $lname, $address, $birth_date, $gender, $RegNo, $phone, $email, $password_hash);
 
-                redirect_to('../login.php');
+                redirect_to('../login.php?success');
 
                
 

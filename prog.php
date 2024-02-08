@@ -1,17 +1,17 @@
 <?php
 session_start();
-
 include_once "inc/header.php";
 include_once "inc/database.php";
 require_once __DIR__ . "/helpers/functions.php";
 kick_user_to("access.php");
+sweetAlertSession('login', "Success!","You logged in successfully!", "success" );
 $data = get_user_info_by_id(id());
 
 ?>
 <div class="header">
     <h><span>e-</span>SMS</h>
     <p><a href="home.php">Home</a></p>
-    <p><a href="actions-handler/logout-handlerr.php">Logout</a></p>
+    <p onclick="smartAlerts()"><a href="actions-handler/logout-handlerr.php">Logout</a></p>
     <p><a href="profile.php">
             <?= $data['first_name']; ?>
         </a></p>

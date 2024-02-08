@@ -7,8 +7,9 @@ $password_hash = hash_password($new_password);
 $confirm_password = $_POST['confirm_password'];
 $email = $_POST['email'];
 $RegNo = $_POST['RegNo'];
-$data = get_usrer_info_by_email($email);
+$data = get_user_info_by_email($email);
 $_SESSION['userId'] = $data['id'];
+$_SESSION['change'] = $_POST['change'];
 
 if(isset($_POST['change'])){
     if(verify_password($new_password, $confirm_password)){
