@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once __DIR__ . "/../inc/header.php";
 require_once __DIR__ . "/../inc/header.php";
 require_once __DIR__ . "/../inc/database.php";
@@ -7,7 +8,7 @@ require_once __DIR__ . "/../inc/header.php";
 define("CURRENT_USER_ID", "user_id");
 define("STORED_ID", "id");
 define("PASSWORD", "password");
-
+define("MAX_FILE_SIZE", 1048576);
 function is_user_present(string $email, int $phone_number)
 {
     $sql = "SELECT * FROM student WHERE email = '$email' OR phone = $phone_number";
@@ -19,16 +20,13 @@ function redirect_to(string $url)
     header("Location: $url");
     exit;
 }
-
 function register($fname, $mname, $lname, $address, $birth_date, $gender, $RegNo, $phone, $email, $password)
 {
-
     $sql = "INSERT INTO student(first_name, middle_name, last_name, physical_address, DOB, gender, reg_num, phone, email,password) 
 
   VALUES('$fname', '$mname', '$lname', '$address', '$birth_date', '$gender', '$RegNo', $phone, '$email', '$password')";
     return database()->query($sql);
 }
-
 function genereate_messsage(string $message, string $query_string, string $class)
 {
     if (isset($_GET[$query_string])) {
@@ -39,7 +37,6 @@ function genereate_messsage(string $message, string $query_string, string $class
     <?php
     }
 }
-
 function verify_password(string $pass_one, string $pass_two)
 {
     return $pass_one === $pass_two;
@@ -69,7 +66,6 @@ function get_user_info_by_email(string $email)
     $result = database()->query("SELECT * FROM student WHERE email = '$email'");
     return $result->fetch_assoc();
 }
-
 function get_user_info_by_id($user_id)
 {
     $result = database()->query("SELECT * FROM student WHERE id = '$user_id'");
@@ -89,14 +85,12 @@ function login_student(string $email, string $password)
             set_session($user[STORED_ID]);
             redirect_to('../prog.php?logged');
         } else {
-            redirect_to('../login.php?wrong-cred'); 
+            redirect_to('../login.php?wrong-cred');
         }
     } else {
         redirect_to("../login.php?noexist");
     }
 }
-
-
 function is_logged()
 {
     return isset($_SESSION[CURRENT_USER_ID]);
@@ -108,12 +102,10 @@ function kick_user_to(string $url)
         redirect_to($url);
     }
 }
-
 function is_request_method_post()
 {
     return strtoupper($_SERVER["REQUEST_METHOD"] === "POST");
 }
-
 function update_user_password(string $new_password, int $user_id)
 {
     $sql = ("UPDATE student SET password ='$new_password' WHERE id = $user_id");
@@ -165,8 +157,6 @@ function set_session(int $user_id)
 {
     $_SESSION[CURRENT_USER_ID] = $user_id;
 }
-
-
 function id()
 {
     return isset($_SESSION[CURRENT_USER_ID]) ? $_SESSION[CURRENT_USER_ID] : null;
@@ -267,4 +257,82 @@ function sweetAlertSession($session_string, $alert_head, $message, $class)
 <?php
     }
     unset($_SESSION[$session_string]);
+}
+
+function addClass($classname)
+{
+    $querry = "INSERT INTO class(class_name) VALUE('$classname')";
+    $result = database()->query($querry);
+    return $result;
+}
+
+function upload_profile_pic(int $student_id, int $teacher_id, int $parent_id, int $admin_id, string $profile_pic)
+{
+    $query = "INSERT INTO profile(student_id, teacher_id, parent_id, admin_id, profile_image)
+               VALUES($student_id, $teacher_id, $parent_id, $admin_id, '$profile_pic')";
+    return database()->query($query);
+}
+
+function is_upload_err_ok($nofile_url, $partial_uploar_url, $unknown_err_url)
+{
+
+    if ($_FILES["image"]["error"] !== UPLOAD_ERR_OK) {
+
+        switch ($_FILES["image"]["error"]) {
+            case UPLOAD_ERR_NO_FILE:
+                redirect_to($nofile_url);
+                break;
+
+            case UPLOAD_ERR_PARTIAL:
+                redirect_to($partial_uploar_url);
+
+            default:
+                redirect_to($unknown_err_url);
+        }
+    }
+}
+function is_file_image()
+{
+    $finfo = new finfo(FILEINFO_MIME_TYPE);
+    $mime_type = $finfo->file($_FILES["image"]["tmp_name"]);
+    $mime_type = ['image/png', 'image/jpg', 'image/jpeg', 'image/gif'];
+    return in_array($_FILES['image']['type'], $mime_type);
+}
+
+function max_file_size()
+{
+    return  $_FILES["image"]["size"];
+}
+
+function upload_file()
+{
+    $pathinfo = pathinfo($_FILES["image"]["name"]);
+    $base = $pathinfo["filename"];
+    $base = preg_replace("/[^\w-]/", "_", $base);
+    $filename = $base . "." . $pathinfo["extension"];
+    $destination = __DIR__ . "/../uploads/" . $filename;
+    $i = 1;
+    while (file_exists($destination)) {
+        $filename = $base . "($i)." . $pathinfo["extension"];
+        $destination = __DIR__ . "/../uploads/" . $filename;
+        $i++;
+    }  
+    $_SESSION["profile_pic"] = $filename;   
+    if (!move_uploaded_file($_FILES["image"]["tmp_name"], $destination)) {
+        redirect_to("../profile_picture.php?failed");
+    }
+    return;
+}
+
+function display_student_profile_picture($student_id)
+{
+    $sql = "SELECT profile_image FROM profile WHERE student_id = $student_id";
+    $result = database()->query($sql);
+    return $result->fetch_assoc();
+}
+
+function profile_exist(int $student_id)
+{
+    $sql = "SELECT profile_image FROM profile WHERE student_id = $student_id";
+    return database()->query($sql)->num_rows > 0;
 }

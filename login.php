@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once __DIR__ . "/inc/header.php";
 require_once __DIR__ . "/helpers/functions.php";
 ?>
@@ -17,8 +16,8 @@ require_once __DIR__ . "/helpers/functions.php";
         <div>
 <?php sweetAlert('wrong-cred', 'Ooops!', 'Wrong email or password!', 'error') ?>
 <?php sweetAlert('noexist', 'Ooops!', 'A user may not found!', 'error') ?>
-<?php sweetAlert('logout', 'Success!', 'You logged out!', 'warning') ?>
-<?php sweetAlertSession('change', 'Success!',  'Your password was changed successfully! Login now with your new password!', 'success' ) ?>
+<?php sweetAlertSession('logout', 'Successfully!','You logged out!', 'warning' ) ?>
+<?php sweetAlertSession('change', 'Successfully!',  'Your password was changed! Login now with your new password!', 'success' ) ?>
 <?php sweetAlertSession('status', 'Success!',  'You logged in successfully!', 'success' ) ?>
 
 

@@ -1,5 +1,4 @@
 <?php
-session_start();
 include_once "inc/header.php";
 include_once __DIR__ . "/inc/database.php";
 include_once __DIR__ . "/helpers/functions.php";
@@ -46,6 +45,7 @@ if (is_logged()) {
             <?= $data['first_name'] ?>
             <?= $data['middle_name'] ?>
             <?= $data['last_name'] ?>
+            <a href="actions-handler/logout-handlerr.php">(logout)</a>
         </h2>
         <h3>Developed and published by Eng. Shija</h3>
         <h3>Vist us and follow us</h3>

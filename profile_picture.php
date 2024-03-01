@@ -1,32 +1,41 @@
 <?php
-include_once "./inc/header.php";
+include_once "inc/header.php";
 require_once __DIR__ . "/helpers/functions.php";
 kick_user_to("access.php");
+$data = get_user_info_by_id(id());
 ?>
 <div class="header">
     <h><span>e-</span>SMS</h>
     <p><a href="home.php">Home</a></p>
-    <p><a href="register.php">Register</a></p>
+    <p><a href="actions-handler/logout-handlerr.php">Logout</a></p>
+    <p><a href="prog.php">Dashboard</a></p>
+    <div class="time">
+        <?php include_once "./inc/greetings.php" ?>
+    </div>
+    <h6></h6>
 </div>
+
 <div class="container">
     <div class="MyLoginForm">
-        <fieldset>
-            <form action="AdminTools/addSubject.php" name="class" method="POST">
-                <input type="text" name="subName" placeholder="Subject Name"><br><br>
-                <input type="number" name="studentNumber" placeholder="Student's number taking"><br><br>
-                <input type="number" name="subName" placeholder="No of Teachers teaching"><br><br>
-                <div class="submit">
-                    <input name="addsub" type="submit" value="Add">
-                    <br>
-                </div>
-                <div class="submit">
-            </form>
-        </fieldset>
+        <form action="actions-handler/file_upload_handler.php" method="post" enctype="multipart/form-data">
+            <label for="file" class="label">CHOOSE AN IMAGE TO UPLOAD</label>
+        <div class="hidden">
+            <input type="file" name="image" id="file">
+        </div>
+            <button type="submit" name="upload" class="uploadbtn">UPLOAD</button>
+           
+        </form>
     </div>
 </div>
-</div>
-<div class="footer">
+
+<section class="footer">
     <div class="head">
+        <h2>You logged in as
+            <?= $data['first_name'] ?>
+            <?= $data['middle_name'] ?>
+            <?= $data['last_name'] ?>
+            <a href="actions-handler/logout-handlerr.php">(logout)</a>
+        </h2>
         <h3>Developed and published by Eng. Shija</h3>
         <h3>Vist us and follow us</h3>
         <div class="row">
@@ -49,6 +58,8 @@ kick_user_to("access.php");
         </div>
         <p>&#169All Rights Reserved</p>
     </div>
-</div>
+</section>
 
-<?php include_once "./inc/footer.php"; ?>
+<?php
+require_once "inc/footer.php";
+

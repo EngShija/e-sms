@@ -1,10 +1,10 @@
 <?php include_once "./inc/header.php";
-session_start();
 include_once "inc/header.php";
 include_once "inc/database.php";
 require_once __DIR__ . "/helpers/functions.php";
 kick_user_to("access.php");
 $data = get_user_info_by_id(id());
+$profile_pic = display_student_profile_picture(id());
 ?>
 
 
@@ -25,7 +25,7 @@ $data = get_user_info_by_id(id());
         <div class="inlineForm">
 
             <fieldset>
-                <legend><img src="images/avatar.jpeg"></legend>
+                <legend><img src="uploads/<?= $profile_pic['profile_image'] ?>"></legend>
                 <div class="prof">
                     <li><a href="editParent.php">Edit Parent info</a></li>
                 </div>

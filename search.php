@@ -1,5 +1,4 @@
 <?php
-session_start();
 include_once "inc/header.php";
 require_once __DIR__ . "/helpers/functions.php";
 require_once __DIR__ . "/inc/database.php";

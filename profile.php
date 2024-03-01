@@ -1,11 +1,10 @@
 <?php
-session_start();
-
 include_once "inc/header.php";
 include_once "inc/database.php";
 require_once __DIR__ . "/helpers/functions.php";
 kick_user_to("access.php");
 $data = get_user_info_by_id(id());
+$profile_pic = display_student_profile_picture(id());
 ?>
 <div class="header">
     <h><span>e-</span>SMS</h>
@@ -44,7 +43,8 @@ $data = get_user_info_by_id(id());
             </div>
 
             <div class="prof">
-                <img src="images/avatar.jpeg"><br>
+                <img src="uploads/<?= $profile_pic['profile_image'] ?>"><br>
+                <li><a href="profile_picture.php">Upload profile picture</a></li><br>
                 <h3>Full Name: </h3>
                 <p>
                     <?= $data['first_name'] ?>
@@ -95,6 +95,7 @@ $data = get_user_info_by_id(id());
             <?= $data['first_name'] ?>
             <?= $data['middle_name'] ?>
             <?= $data['last_name'] ?>
+            <a href="actions-handler/logout-handlerr.php">(logout)</a>
         </h2>
         <h3>Developed and published by Eng. Shija</h3>
         <h3>Vist us and follow us</h3>

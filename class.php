@@ -1,6 +1,8 @@
 <?php
-session_start();
- include_once "./inc/header.php"; ?>
+ include_once "./inc/header.php";
+ require_once __DIR__. "/helpers/functions.php";
+ sweetAlert('added', 'Successfully!', 'Class added', 'success');
+ ?>
     <div class="header">
         <h><span>e-</span>SMS</h>
         <p><a href="home.php">Home</a></p>
@@ -16,12 +18,9 @@ session_start();
             <fieldset>
                 <form action="AdminTools/addClass.php" name="class" method = "POST">
                     <input type="text" name="className" placeholder="Class Name"><br><br>
-                    <input type="number" name="studentNumber" placeholder="Student's number in Class"><br><br>
-                    <input type="number" name="subName" placeholder="Number of subjects"><br><br>
-                    <div class="submit">
-                        <input name = "addclass" type="submit" value="Add">
-                        <br>
-                    </div>
+                    <span class="submit">
+                        <button type="submit" value="Add Class"name="addclass">Add Class</button>
+                    </span>
                     <div class="submit">
                 </form>
                 </fieldset>

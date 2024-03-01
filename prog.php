@@ -1,11 +1,11 @@
 <?php
-session_start();
 include_once "inc/header.php";
 include_once "inc/database.php";
 require_once __DIR__ . "/helpers/functions.php";
 kick_user_to("access.php");
 sweetAlertSession('login', "Success!","You logged in successfully!", "success" );
 $data = get_user_info_by_id(id());
+$profile_pic = display_student_profile_picture(id());
 
 ?>
 <div class="header">
@@ -13,7 +13,7 @@ $data = get_user_info_by_id(id());
     <p><a href="home.php">Home</a></p>
     <p onclick="smartAlerts()"><a href="actions-handler/logout-handlerr.php">Logout</a></p>
     <p><a href="profile.php">
-            <?= $data['first_name']; ?>
+    <img src="uploads/<?= $profile_pic['profile_image'] ?>"><?= $data['first_name']; ?>
         </a></p>
     <div class="time">
         <?php include_once "./inc/greetings.php" ?>
@@ -24,10 +24,7 @@ $data = get_user_info_by_id(id());
 
 <div class="container">
     <div class="MyLoginForm">
-        <div class="successBox">
-            <?php if (isset($_GET['updated']))
-                echo "Your details has been updated successfully!" ?>
-            </div>
+        <?php genereate_messsage("Your details has been updated successfully!", 'updated', "successBox") ?> 
             <div class="all">
                 <div class="LinkBar">
                     <li>
@@ -80,6 +77,7 @@ $data = get_user_info_by_id(id());
             <?= $data['first_name'] ?>
             <?= $data['middle_name'] ?>
             <?= $data['last_name'] ?>
+            <a href="actions-handler/logout-handlerr.php">(logout)</a>
         </h2>
         <h3>Developed and published by Eng. Shija</h3>
         <h3>Vist us and follow us</h3>

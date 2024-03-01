@@ -9,8 +9,8 @@ session_start();
  $birth = $_POST['ubirth'];
  $phone = $_POST['uphone'];
  $email = $_POST['uemail'];
- $user_id = id();
-$row = get_parent_info_by_id(id());
+ $user_id = id() || $user_id = $_SESSION['std_id'];
+$row = get_parent_info_by_id($user_id);
 
 
 if($row){

@@ -1,5 +1,4 @@
 <?php
-session_start();
 include_once "inc/header.php";
 include_once "inc/database.php";
 require_once __DIR__ . "/helpers/functions.php";
@@ -15,7 +14,7 @@ kick_user_to("access.php");
         <div class="time">
                 <?php include_once "./inc/greetings.php"?>
             </div>
-            <h6>Welcome main Administrator!</h6>
+            <h6>Welcome Admin!</h6>
 </div>
       
     <div class="container">
