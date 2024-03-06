@@ -3,6 +3,9 @@ include_once "inc/header.php";
 require_once __DIR__ . "/helpers/functions.php";
 kick_user_to("access.php");
 $data = get_user_info_by_id(id());
+sweetAlert('noimage', 'Sorry!', 'No image sellected!', 'error');
+sweetAlert('notimage', 'Sorry!', 'A file sellected is not image!', 'error');
+sweetAlert('toolarge', 'Sorry!', 'Image size is too large (Max: 1MB)', 'warning');
 ?>
 <div class="header">
     <h><span>e-</span>SMS</h>

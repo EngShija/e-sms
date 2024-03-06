@@ -42,7 +42,7 @@ require_once __DIR__ . "/helpers/functions.php";
                     <h3>Forgot Password!</h3>
                 </a>
                 <div class="row"></div>
-                <input type="checkbox" name="cookie" style="height: 17px;width: 17px;"> Remember me<br>
+                <input type="checkbox" name="cookie" style="height: 17px;width: 17px;" id="cookie"><label for="cookie"> Remember me</label><br>
                 <div class="submit">
             </form>
         </fieldset>

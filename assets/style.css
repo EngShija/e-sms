@@ -538,7 +538,8 @@ select{
 }
 .denied{
     justify-content: center;
-    text-align: center;
+    align-items: center;
+    display: flex;
     
 }
 .denied h1 {

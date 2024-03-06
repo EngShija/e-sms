@@ -6,6 +6,7 @@ kick_user_to("access.php");
 if (isset($_GET['student-id'])) {
     $id = $_GET['student-id'];
     $student = get_user_info_by_id($id);
+    $profile_pic = display_student_profile_picture($id);
 }
 
 ?>
@@ -22,6 +23,7 @@ if (isset($_GET['student-id'])) {
 <div class="container">
     <div class="MyLoginForm">
         <div class="prof">
+            <img src="uploads/<?= $profile_pic['profile_image'] ?>"><br>
             <h1><?= $student['first_name'] ?></h1>
             <h1><?= $student['middle_name'] ?></h1>
             <h1><?= $student['last_name'] ?></h1><br>

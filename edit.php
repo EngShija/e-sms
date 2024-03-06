@@ -5,6 +5,7 @@ require_once __DIR__ . "/helpers/functions.php";
 if (isset($_GET['editid'])) {
     $id = $_GET['editid'];
     $data = get_user_info_by_id($id);
+    $profile_pic = display_student_profile_picture($id);
 }
 ?>
 
@@ -32,7 +33,7 @@ if (isset($_GET['editid'])) {
 
             <fieldset>
               
-                <legend><img src="images/avatar.jpeg"></legend>
+                <legend> <img src="uploads/<?= $profile_pic['profile_image'] ?>"></legend>
                 <div class="prof">
                     <li><a href="editParent.php">Edit Parent info</a></li>
                 </div>

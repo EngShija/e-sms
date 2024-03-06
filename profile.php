@@ -5,6 +5,8 @@ require_once __DIR__ . "/helpers/functions.php";
 kick_user_to("access.php");
 $data = get_user_info_by_id(id());
 $profile_pic = display_student_profile_picture(id());
+sweetAlert('dpexist', 'Sorry!', 'You have already a profile picture!', 'warning');
+sweetAlert('dpuploaded', 'Successfully!', 'Profile picture uploaded', 'success')
 ?>
 <div class="header">
     <h><span>e-</span>SMS</h>

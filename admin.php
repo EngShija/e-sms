@@ -21,20 +21,20 @@ kick_user_to("access.php");
         <div class="MyLoginForm">
 
         <div class="admintools">
-           <li> <a href="teacher.php">Add Teacher</a></li>
            <li>  <a href="class.php">Add Class</a></li>
-           <li>  <a href="results.php">Upload Results</a></li>
-           <li>  <a href="announce.php">Upload Announcement</a></li>
-           <li>  <a href="techerList.php">View Teachers list</a></li>
+           <li>  <a href="results.php">Results</a></li>
+           <li>  <a href="announce.php">Announcements</a></li>
+           <li>  <a href="teacherList.php">Teachers</a></li>
            <li>  <a href="studentsList.php">Students</a></li>
-           <li>  <a href="admin-registration.php">Add assistant Admin</a></li>
+           <li>  <a href="studentsList.php">Parents</a></li>
+           <li>  <a href="admin-registration.php">Admins</a></li>
         </div>
           
         </div>
     </div>
     <section class="footer">
         <div class="head">
-            <h2>You logged in As a main System administrator!</h2>
+            <h2>You logged in as System administrator<a href="actions-handler/logout-handlerr.php">(Logout)</a></h2>
             <h3>Developed and published by Eng. Shija</h3>
             <h3>Vist us and follow us</h3>
             <div class="row">
