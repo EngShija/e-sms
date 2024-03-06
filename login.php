@@ -20,7 +20,6 @@ require_once __DIR__ . "/helpers/functions.php";
 <?php sweetAlertSession('change', 'Successfully!',  'Your password was changed! Login now with your new password!', 'success' ) ?>
 <?php sweetAlertSession('status', 'Success!',  'You logged in successfully!', 'success' ) ?>
 
-
         </div><br>
 
 

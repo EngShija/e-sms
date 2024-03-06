@@ -23,7 +23,7 @@ if (isset($_GET['student-id'])) {
 <div class="container">
     <div class="MyLoginForm">
         <div class="prof">
-            <img src="uploads/<?= $profile_pic['profile_image'] ?>"><br>
+            <img src="uploads/<?= $profile_pic['profile_image'] ?>"> <li>  <a href="results.php">Add Results</a></li><br>
             <h1><?= $student['first_name'] ?></h1>
             <h1><?= $student['middle_name'] ?></h1>
             <h1><?= $student['last_name'] ?></h1><br>

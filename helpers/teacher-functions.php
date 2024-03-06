@@ -14,3 +14,25 @@ function teacher()
 {
     return database()->query("SELECT * FROM teacher")->fetch_all(MYSQLI_ASSOC);
 }
+
+function get_teacher_info_by_email(string $email)
+{
+    $result = database()->query("SELECT * FROM teacher WHERE email = '$email'");
+    return $result->fetch_assoc();
+}
+
+function login_teacher(string $email, string $password)
+{
+    $user = get_teacher_info_by_email($email);
+
+    if ($user) {
+        if (verify_hashed_password($password, $user[PASSWORD])) {
+            set_session($user[STORED_ID]);
+            redirect_to('../teacher-dashboard.php?logged-in='. $user['email']);
+        } else {
+            redirect_to('../login.php?wrong-cred');
+        }
+    } else {
+        redirect_to("../login.php?noexist");
+    }
+}

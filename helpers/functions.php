@@ -120,6 +120,13 @@ function addClass($classname)
     return $result;
 }
 
+function addSubject($classname)
+{
+    $querry = "INSERT INTO subject(subject_name) VALUE('$classname')";
+    $result = database()->query($querry);
+    return $result;
+}
+
 function upload_profile_pic(int $student_id, int $teacher_id, int $parent_id, int $admin_id, string $profile_pic)
 {
     $query = "INSERT INTO profile(student_id, teacher_id, parent_id, admin_id, profile_image)
@@ -177,6 +184,12 @@ function upload_file()
     }
     return;
 }
+function get_subject_imfo(){
+    $query = "SELECT * FROM subject";
+    $result = database()->query($query);
+    return $result->fetch_all(MYSQLI_ASSOC);
+}
+
 
 
 

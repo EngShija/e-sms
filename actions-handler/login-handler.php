@@ -8,12 +8,13 @@ require_once __DIR__."/../helpers/functions.php";
 
 if (isset($_POST['login'])) {
 
-    
     $email = $_POST['username'];
     
     $password = $_POST['password'];
 
     $_SESSION['login'] = $_POST['login'];
-    login_student($email, $password);
+   if(! login_student($email, $password)){
+    login_teacher($email, $password);
+   }
 
  }

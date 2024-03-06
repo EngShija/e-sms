@@ -39,8 +39,6 @@ function login_student(string $email, string $password)
         } else {
             redirect_to('../login.php?wrong-cred');
         }
-    } else {
-        redirect_to("../login.php?noexist");
     }
 }
 

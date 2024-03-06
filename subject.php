@@ -13,13 +13,9 @@ kick_user_to("access.php");
         <fieldset>
             <form action="AdminTools/addSubject.php" name="class" method="POST">
                 <input type="text" name="subName" placeholder="Subject Name"><br><br>
-                <input type="number" name="studentNumber" placeholder="Student's number taking"><br><br>
-                <input type="number" name="subName" placeholder="No of Teachers teaching"><br><br>
-                <div class="submit">
-                    <input name="addsub" type="submit" value="Add">
-                    <br>
-                </div>
-                <div class="submit">
+                <span class="submit">
+                        <button type="submit"name="addsubject">Add Subject</button>
+                    </span>
             </form>
         </fieldset>
     </div>
