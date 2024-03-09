@@ -23,7 +23,6 @@ function verify_password(string $pass_one, string $pass_two)
 {
     return $pass_one === $pass_two;
 }
-
 function log_out(string $url)
 {
     session_start();
@@ -178,11 +177,16 @@ function upload_file()
         $destination = __DIR__ . "/../uploads/" . $filename;
         $i++;
     }  
-    $_SESSION["profile_pic"] = $filename;   
+    $_SESSION["profile_pic"] = $filename;
     if (!move_uploaded_file($_FILES["image"]["tmp_name"], $destination)) {
         redirect_to("../profile_picture.php?failed");
     }
     return;
+}
+
+function add_results($student_id, $subject_id, $subject_name, $marks, $grade, $description){
+    $query = "INSERT INTO result(student_id, subject_id, subject_name, marks, grade, description) VALUES($student_id, $subject_id, '$subject_name', '$marks', '$grade', '$description')";
+    return database()->query($query);
 }
 function get_subject_imfo(){
     $query = "SELECT * FROM subject";
@@ -190,6 +194,12 @@ function get_subject_imfo(){
     return $result->fetch_all(MYSQLI_ASSOC);
 }
 
+function get_subject_info_by_id($subject_id)
+{
+    $query = "SELECT * FROM subject WHERE id = $subject_id";
+    $result = database()->query($query);
+    return $result->fetch_assoc();
+}
 
 
 

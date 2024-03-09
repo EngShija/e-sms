@@ -1,40 +1,49 @@
 <?php
-include_once "inc/header.php";
+require_once "inc/header.php";
 include_once "inc/database.php";
 require_once __DIR__ . "/helpers/functions.php";
 kick_user_to("access.php");
+
+if(isset($_GET['subject_id'])){
+    $_SESSION['subject_id'] = $_GET['subject_id'];
+}
 ?>
 
-
-    <div class="header">
+<div class="header">
     <h><span>e-</span>SMS</h>
     <p><a href="home.php">Home</a></p>
-        <p><a href="actions-handler/logout-handlerr.php">Logout</a></p>
-       
-        <div class="time">
-                <?php include_once "./inc/greetings.php"?>
-            </div>
-            <h6>Welcome Admin!</h6>
+    <p><a href="login.php">Login</a></p>
+    <div class="time">
+        <?php include_once "./inc/greetings.php" ?>
+    </div>
+    <h6></h6>
 </div>
-      
-    <div class="container">
-        <div class="MyLoginForm">
 
-        <div class="admintools">
-           <li>  <a href="class.php">Add Class</a></li>
-           <li>  <a href="add-subject.php">Add Subject</a></li>
-           <li>  <a href="announce.php">Announcements</a></li>
-           <li>  <a href="teacherList.php">Teachers</a></li>
-           <li>  <a href="studentsList.php">Students</a></li>
-           <li>  <a href="parentsList.php">Parents</a></li>
-           <li>  <a href="admin-registration.php">Admins</a></li>
-        </div>
-          
+</div>
+<div class="container">
+    <div class="MyLoginForm">
+        <div class="inlineForm">
+            <fieldset>
+                <legend>
+                    <h3>#</h3>
+                </legend>        
+                <form name="myForm" method="POST" action="actions-handler/results-handle.php"
+                    enctype="multipart/form-data">
+                        <input name="marks" type="text" placeholder="Marks scored"  required><br><br>
+                    <span class="submit">
+                        <button type="submit" value="Submit"name="submit">Upload</button>
+                    </span>
+            </div>
+            </form>
+            </fieldset>
+
         </div>
     </div>
-    <section class="footer">
+    </div>
+    </div>
+    </div>
+    <div class="footer">
         <div class="head">
-            <h2>You logged in as System administrator<a href="actions-handler/logout-handlerr.php">(Logout)</a></h2>
             <h3>Developed and published by Eng. Shija</h3>
             <h3>Vist us and follow us</h3>
             <div class="row">
@@ -57,7 +66,5 @@ kick_user_to("access.php");
             </div>
             <p>&#169All Rights Reserved</p>
         </div>
-    </section>
-    </body>
-
-</html>
+    </div>
+<?php include_once "./inc/footer.php"; ?>
