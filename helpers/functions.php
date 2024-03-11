@@ -200,6 +200,11 @@ function get_subject_info_by_id($subject_id)
     $result = database()->query($query);
     return $result->fetch_assoc();
 }
+function get_results($student_id){
+    $query = "SELECT * FROM result WHERE student_id = $student_id";
+    $result = database()->query($query);
+    return $result->fetch_all(MYSQLI_ASSOC);
+}
 
 
 

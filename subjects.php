@@ -1,4 +1,10 @@
-<?php include_once "./inc/header.php"; ?>
+<?php 
+require_once __DIR__. "/helpers/functions.php";
+$subject_id = $_SESSION['subject_id'];
+$data = get_subject_info_by_id($subject_id);
+$subject_name = $data['subject_name'];
+sweetAlert('resultadded', 'Successfully', $subject_name. ' Results added!', 'success');
+?>
 
 <div>
     <div class="header">
@@ -12,7 +18,6 @@
         </div>
 
 <?php
-require_once __DIR__. "/helpers/functions.php";
 $data = get_subject_imfo();
 $i = 0;
 foreach($data as $data){

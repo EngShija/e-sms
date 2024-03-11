@@ -9,7 +9,6 @@ if (isset($_GET['student-id'])) {
     $student = get_user_info_by_id($id);
     $profile_pic = display_student_profile_picture($id);
 }
-
 ?>
 <div class="header">
     <h><span>e-</span>SMS</h>
