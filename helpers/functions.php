@@ -74,16 +74,6 @@ function id()
 {
     return isset($_SESSION[CURRENT_USER_ID]) ? $_SESSION[CURRENT_USER_ID] : null;
 }
-     
-function register_admin($username, $password)
-{
-
-    $sql = "INSERT INTO admin(admin_username, password)
-
-  VALUES('$username', '$password')";
-    return database()->query($sql);
-}
-
 function required_field($field, $redirect_url)
 {
     if (empty($field)) {
@@ -185,7 +175,7 @@ function upload_file()
 }
 
 function add_results($student_id, $subject_id, $subject_name, $marks, $grade, $description){
-    $query = "INSERT INTO result(student_id, subject_id, subject_name, marks, grade, description) VALUES($student_id, $subject_id, '$subject_name', '$marks', '$grade', '$description')";
+    $query = "INSERT INTO result(student_id, subject_id, subject_name, marks, grade, description) VALUES($student_id, $subject_id, '$subject_name', $marks, '$grade', '$description')";
     return database()->query($query);
 }
 function get_subject_imfo(){
@@ -205,6 +195,7 @@ function get_results($student_id){
     $result = database()->query($query);
     return $result->fetch_all(MYSQLI_ASSOC);
 }
+
 
 
 

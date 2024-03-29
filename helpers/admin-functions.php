@@ -7,6 +7,15 @@ function get_admin_info_by_username(string $username)
     $result = database()->query("SELECT * FROM admin WHERE admin_username = '$username'");
     return $result->fetch_assoc();
 }
+function register_admin($username, $password)
+{
+
+    $sql = "INSERT INTO admin(admin_username, password)
+
+  VALUES('$username', '$password')";
+    return database()->query($sql);
+}
+
 
 function login_admin(string $username, string $password)
 {

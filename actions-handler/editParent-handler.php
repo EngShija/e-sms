@@ -9,13 +9,13 @@ session_start();
  $birth = $_POST['ubirth'];
  $phone = $_POST['uphone'];
  $email = $_POST['uemail'];
- $user_id = id() || $user_id = $_SESSION['std_id'];
-$row = get_parent_info_by_id($user_id);
-
+ $relationship = $_POST['relationship'];
+ $student_id = id();
+$row = get_parent_info_by_id($student_id);
 
 if($row){
 if(isset($_POST['update'])){  
-    update_parent($user_id, $fname, $mname, $lname, $birth,  $phone, $email);
+    update_parent($student_id, $fname, $mname, $lname, $birth,  $phone, $email, $relationship);
         redirect_to("../prog.php?updated");
        }else{
         redirect_to(" ../update.php?notchanged");

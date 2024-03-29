@@ -24,7 +24,6 @@ if (isset($_POST['submit'])) {
         $password = validate_inputs($_POST['password1']);
 
         $relationship = validate_inputs($_POST['relationship']);
-
         $password2 = validate_inputs($_POST['password2']);
 
         $password_hash = hash_password($password);

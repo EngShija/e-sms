@@ -111,7 +111,6 @@ body {
     box-shadow: 0px 5px 5px 0px rgb(0, 0, 0);
     flex-wrap: wrap;
     text-align: center;
-    padding: 20px 15px;
     border-top: 3px solid green;
     border-bottom: 3px solid green;
     width: 100%;
@@ -161,14 +160,13 @@ body {
     background-color: #bccece;
     height: 100%;
     margin-left: 0;
-    /* background: blue; */
+
 }
 
 .LinkBar li a img {
     width: 30px;
     height: 30px;
     margin: 20px;
-    border-radius: 12px;
     margin-left: 3px;
 
 }
@@ -194,9 +192,11 @@ body {
     width: fit-content;
     flex-wrap: wrap;
     border-radius: 20px;
-    margin: 0 auto;
+    margin: 12px auto 12px 7px;
     text-align: left;
     padding: 15px 15px;
+    margin-top: 12px;
+    margin-bottom: 12px;
 }
 .prof h1{
     display: inline-flex;
@@ -230,6 +230,12 @@ body {
 .prof li  :hover{
     color: rgb(46, 48, 134);
     transform: translateY(-4px);
+}
+
+.prof img{
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
 }
 .messages p{
     color: red;
@@ -361,18 +367,20 @@ body {
 }
 
 .footer li img {
-    height: 25px;
-    width: 25px;
-    border-radius: 50%;
+    height: 30px;
+    width: 30px;
 }
 
 .container fieldset{
     width: fit-content;
+    height: fit-content;
     box-shadow: 0 0 7px 0 rgb(0, 0, 0);
     margin:0 auto;
     padding: 20px 10px;
     border-radius: 20px;
     border: 3px solid blue;
+    margin-top: 12px;
+    margin-bottom: 12px;
 }
 
 fieldset small a{
@@ -446,16 +454,19 @@ color: #fff;
 
 }
 table{
-    background: rgba(0, 0, 0, 0.7);
+    background: #000000b3;
     width: fit-content;
     color: white;
     margin: 0 auto;
+    height: fit-content;
+    border: none;
+    margin-top: 12px;
     
 }
 table th{
     font-size: 16px;
-    background-color: rgb(36, 83, 60);
-    color: #000;
+    background-color: rgb(0, 0, 255);
+    color: #fff;
 }
 table td{
     font-size: 14px;
@@ -547,4 +558,28 @@ select{
     font-size: 55px;
     text-shadow: 3px 3px blue;
 
+}
+.currrentLink{
+    background: #798484;
+}
+
+/*chatBox styling*/
+
+#wrapper {
+    max-width: 800px;
+    min-height: 500px;
+    background-color: blue;
+    display: flex;
+}
+#left_pannel{
+    min-height: 400px;
+    max-width: 600px;
+    background-color: red;
+    display: flex;
+}
+#right_pannel{
+    max-width: 400px;
+    min-height: 400px;
+    background-color: green;
+    display: flex;
 }
