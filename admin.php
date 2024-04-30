@@ -19,7 +19,35 @@ kick_user_to("access.php");
       
     <div class="container">
         <div class="MyLoginForm">
+            <div class="counters">
+        <section class="student">
+<?php $row_count = student_count();
+echo $row_count['id_count']. " Total students";
+?>
+        </section>
+<section class="parent">
+<?php $row_count = parent_count();
+echo $row_count['id_count']. " Total parents";
+?>
+</section>
+<section  class="teacher">
+<?php $row_count = teacher_count();
+echo $row_count['id_count']. " Total Teachers";
+?>
+</section>
 
+<section  class="subject">
+<?php $row_count = subject_count();
+echo $row_count['id_count']. " Total Subjects";
+?>
+</section>
+
+<section  class="class">
+<?php $row_count = class_count();
+echo $row_count['id_count']. " Total Classes";
+?>
+</section>
+</div>
         <div class="admintools">
            <li>  <a href="class.php">Add Class</a></li>
            <li>  <a href="add-subject.php">Add Subject</a></li>

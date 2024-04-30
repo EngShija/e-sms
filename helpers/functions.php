@@ -29,6 +29,21 @@ function log_out(string $url)
     session_regenerate_id(true);
     session_unset();
     session_destroy();
+
+    if(isset($_COOKIE['userid']))
+    {
+                    $passwords=$_COOKIE['userid'];
+                 $user_email=$_COOKIE['useremail'];
+            setcookie("userid",$passwords,time()-(60*60*24*7));
+         setcookie("useremail",$user_email,time()-(60*60*24*7));
+         $queryz = "UPDATE Users Set Online='Offline' WHERE Password='$passwords' ";                        
+     database()->query($queryz) or die('Errorr, query failed');	
+                         
+         header("Location: index.php");
+    }
+ 
+ 
+ else{ header("Location: index.php");}
     redirect_to($url);
 }
 
@@ -184,6 +199,12 @@ function get_subject_imfo(){
     return $result->fetch_all(MYSQLI_ASSOC);
 }
 
+function get_subject_imfo_single_row(){
+    $query = "SELECT * FROM subject";
+    $result = database()->query($query);
+    return $result->fetch_assoc();
+}
+
 function get_subject_info_by_id($subject_id)
 {
     $query = "SELECT * FROM subject WHERE id = $subject_id";
@@ -195,6 +216,20 @@ function get_results($student_id){
     $result = database()->query($query);
     return $result->fetch_all(MYSQLI_ASSOC);
 }
+
+function class_count(){
+    $sql = "SELECT COUNT(id) AS id_count FROM class";
+    $result = database()->query($sql);
+    return $result->fetch_assoc();
+}
+
+function subject_count(){
+    $sql = "SELECT COUNT(id) AS id_count FROM subject";
+    $result = database()->query($sql);
+    return $result->fetch_assoc();
+}
+
+
 
 
 

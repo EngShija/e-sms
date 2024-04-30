@@ -26,56 +26,56 @@ if (is_logged()) {
         <?php genereate_messsage("Incorrect current password!", "wrongCurr", "faliureBox") ?>
 
         <div class="all">
-        <div class="LinkBar">
-                    <li>
-                        <a href="prog.php"><img src="images/dashboard.png"></a>
-                    </li>
-                    <li>
-                        <a href="profile.php"><img src="images/account.png"></a>
-                    </li>
-                    <li>
-                        <a href="results.php"><img src="images/results.png"></a>
-                    </li>
-                    <li  class="currrentLink">
-                        <a href="payment.php"><img src="images/pay.svg"></a>
-                    </li>
-                    <li>
-                        <a href="chat.php"><img src="images/chat.svg"></a>
-                    </li>
-                    <li>
-                        <a href="security.php"><img src="images/verified_user.png"></a>
-                    </li>
-                </div>
+            <div class="LinkBar">
+                <li>
+                    <a href="prog.php" title="Dashboard"><img src="images/dashboard.png"></a>
+                </li>
+                <li>
+                    <a href="profile.php" title="Profile"><img src="images/account.png"></a>
+                </li>
+                <li>
+                    <a href="results.php" title="Results"><img src="images/results.png"></a>
+                </li>
+                <li class="currrentLink">
+                    <a href="payment.php" title="Payments"><img src="images/pay.svg"></a>
+                </li>
+                <li>
+                    <a href="chat/user.php" title="Chat"><img src="images/chat.svg"></a>
+                </li>
+                <li>
+                    <a href="security.php" title="Security"><img src="images/security.svg"></a>
+                </li>
+            </div>
 
-                <fieldset>
+            <fieldset>
                 <form method="post" action="stripePayment/stripe_form.php">
-                <div class="col-md-4 column productbox">
-                <div class="purpose">
-                        <select name = "purpose">
-                            <option value="0">Sellect purpose of Payment</option>
-                            <option value="School fees">School fees</option>
-                            <option value="Students organisation fee">Students organisation fee</option>
-                            <option value="Lost ID">Lost ID</option>
-                        </select><br><br>
-                    </div>
-                    <input type="number" name="amount" placeholder="Amount"/><br><br>
-                    <div>
-                    <span class="submit">
-                    <button type="submit"  name="submit" role="button">Go to pay</button>
-                </span>
+                    <div class="col-md-4 column productbox">
+                        <div class="purpose">
+                            <select name="purpose">
+                                <option value="0">Sellect purpose of Payment</option>
+                                <option value="School fees">School fees</option>
+                                <option value="Students organisation fee">Students organisation fee</option>
+                                <option value="Lost ID">Lost ID</option>
+                            </select><br><br>
+                        </div>
+                        <input type="number" name="amount" placeholder="Amount" /><br><br>
+                        <div>
+                            <span class="submit">
+                                <button type="submit" name="submit" role="button">Go to pay</button>
+                            </span>
                         </div>
                     </div>
-                </div>
-            </form>
+        </div>
+        </form>
         </fieldset>
     </div>
 </div>
 </div>
-<?php require_once __DIR__. "/inc/logged-in-user-footer.php" ?>
+<?php require_once __DIR__ . "/inc/logged-in-user-footer.php" ?>
 
 
 
-    </div>
 </div>
 </div>
-<?php require_once __DIR__. "/inc/logged-in-user-footer.php" ?>
+</div>
+<?php require_once __DIR__ . "/inc/logged-in-user-footer.php" ?>

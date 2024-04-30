@@ -42,4 +42,10 @@ function update_parent($student_id, $fname, $mname, $lname, $birth,  $phone, $em
     return database()->query($query);
 }
 
+function parent_count(){
+    $sql = "SELECT COUNT(id) AS id_count FROM parent";
+    $result = database()->query($sql);
+    return $result->fetch_assoc();
+}
+
 

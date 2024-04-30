@@ -90,3 +90,14 @@ function profile_exist(int $student_id)
     $sql = "SELECT profile_image FROM profile WHERE student_id = $student_id";
     return database()->query($sql)->num_rows > 0;
 }
+
+function get_chat_users_by_email($email){
+
+    $result = database()->query("SELECT * FROM users WHERE Email = '$email'");
+    return $result->fetch_assoc();
+}
+function student_count(){
+    $sql = "SELECT COUNT(id) AS id_count FROM student";
+    $result = database()->query($sql);
+    return $result->fetch_assoc();
+}

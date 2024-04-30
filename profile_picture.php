@@ -21,39 +21,39 @@ sweetAlert('toolarge', 'Sorry!', 'Image size is too large (Max: 1MB)', 'warning'
 <div class="container">
     <div class="MyLoginForm">
 
-    <div class="all">
-    <div class="LinkBar">
-                    <li>
-                        <a href="prog.php"><img src="images/dashboard.png"></a>
-                    </li>
-                    <li>
-                        <a href="profile.php"><img src="images/account.png"></a>
-                    </li>
-                    <li>
-                        <a href="results.php"><img src="images/results.png"></a>
-                    </li>
-                    <li>
-                        <a href="payment.php"><img src="images/pay.svg"></a>
-                    </li>
-                    <li>
-                        <a href="chat.php"><img src="images/chat.svg"></a>
-                    </li>
-                    <li>
-                        <a href="security.php"><img src="images/verified_user.png"></a>
-                    </li>
-                </div>
+        <div class="all">
+            <div class="LinkBar">
+                <li>
+                    <a href="prog.php" title="Dashboard"><img src="images/dashboard.png"></a>
+                </li>
+                <li class="currrentLink">
+                    <a href="profile.php" title="Profile"><img src="images/account.png"></a>
+                </li>
+                <li>
+                    <a href="results.php" title="Results"><img src="images/results.png"></a>
+                </li>
+                <li>
+                    <a href="payment.php" title="Payments"><img src="images/pay.svg"></a>
+                </li>
+                <li>
+                    <a href="chat/user.php" title="Chat"><img src="images/chat.svg"></a>
+                </li>
+                <li>
+                    <a href="security.php" title="Security"><img src="images/security.svg"></a>
+                </li>
+            </div>
 
-<fieldset>
-        <form action="actions-handler/file_upload_handler.php" method="post" enctype="multipart/form-data">
-            <label for="file" class="label">CHOOSE AN IMAGE TO UPLOAD</label>
-        <div class="hidden">
-            <input type="file" name="image" id="file">
+            <fieldset>
+                <form action="actions-handler/file_upload_handler.php" method="post" enctype="multipart/form-data">
+                    <label for="file" class="label">CHOOSE AN IMAGE TO UPLOAD</label>
+                    <div class="hidden">
+                        <input type="file" name="image" id="file">
+                    </div>
+                    <button type="submit" name="upload" class="uploadbtn">UPLOAD</button>
+
+                </form>
+            </fieldset>
         </div>
-            <button type="submit" name="upload" class="uploadbtn">UPLOAD</button>
-           
-        </form>
-        </fieldset>
     </div>
 </div>
-</div>
-<?php require_once __DIR__. "/inc/logged-in-user-footer.php" ?>
+<?php require_once __DIR__ . "/inc/logged-in-user-footer.php" ?>

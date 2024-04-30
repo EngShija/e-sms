@@ -563,23 +563,31 @@ select{
     background: #798484;
 }
 
-/*chatBox styling*/
+.counters{
+    width: 100%;
+}
+.counters section{
+    display: inline-flex;
+    margin: 5px 2px;
+    padding: 10px 10px;
+    flex-wrap: wrap;
+    color: #fff;
+    font-size: 25px;
+    font-weight: bolder;
+}
+.counters .student{
+    background: purple;
+}
+.counters .parent{
+    background: orange;
+}
+.counters .teacher{
+    background: rgb(0, 225, 255);
+}
+.counters .subject{
+    background: yellowgreen;
+}
 
-#wrapper {
-    max-width: 800px;
-    min-height: 500px;
-    background-color: blue;
-    display: flex;
-}
-#left_pannel{
-    min-height: 400px;
-    max-width: 600px;
-    background-color: red;
-    display: flex;
-}
-#right_pannel{
-    max-width: 400px;
-    min-height: 400px;
-    background-color: green;
-    display: flex;
+.counters .class{
+    background: blueviolet;
 }

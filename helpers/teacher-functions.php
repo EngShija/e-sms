@@ -36,3 +36,9 @@ function login_teacher(string $email, string $password)
         redirect_to("../login.php?noexist");
     }
 }
+
+function teacher_count(){
+    $sql = "SELECT COUNT(id) AS id_count FROM teacher";
+    $result = database()->query($sql);
+    return $result->fetch_assoc();
+}
