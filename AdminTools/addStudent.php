@@ -72,6 +72,9 @@ if (isset($_POST['submit'])) {
             if (verify_password($password, $password2)) {
 
                 register($fname, $mname, $lname, $address, $birth_date, $gender, $RegNo, $phone, $email, $password_hash);
+
+                register_chat_member($fname,$lname,$email,$password,$phone);
+
                 redirect_to('../parent.php');
 
             } else {

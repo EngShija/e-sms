@@ -40,12 +40,4 @@ require_once __DIR__."/helpers/functions.php";
     </div>
 </div>
 </div>
-<div class="footer">
-    <div class="head">
-        <h3>Developed and published by Eng. Shija</h3>
-        <h3>Vist us and follow us</h3>
-        <?php require_once __DIR__. "/inc/socialmedia.php" ?>
-        <p>&#169All Rights Reserved</p>
-    </div>
-</div>
 <?php require_once __DIR__. "/inc/footer.php" ?>

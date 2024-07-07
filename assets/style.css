@@ -16,13 +16,15 @@ body {
 }
 
 .header {
-    /* background: linear-gradient(gray, rgb(51, 51, 109)); */
+    background: linear-gradient(gray, rgb(51, 51, 109));
     color: blue;
     border-bottom: 3px solid blue;
     width: 100%;
     height: fit-content;
     flex-wrap: wrap;
-    background: rgba(0, 0, 0, 0.5);
+    /* background: rgb(0, 0, 0,); */
+    position: fixed;
+    top: 0;
 }
 
 .header h {
@@ -78,13 +80,12 @@ body {
 }
 
 .container {
-    border-top: 3px solid rgb(0, 0, 0);
-    border-bottom: 3px solid rgb(0, 0, 0);
     width: 100%;
     display: inline-flex;
     margin: 0 auto;
     font-size: 20px;
     background: rgba(255, 255, 255, 0.4);
+    height: 100%;
     
 }
 
@@ -108,14 +109,14 @@ body {
 
 
 .MyLoginForm {
-    box-shadow: 0px 5px 5px 0px rgb(0, 0, 0);
     flex-wrap: wrap;
     text-align: center;
-    border-top: 3px solid green;
-    border-bottom: 3px solid green;
     width: 100%;
     margin: 0 auto;
     font-size: 18px;
+    height: 100%;
+    margin-top: 68px;
+    margin-bottom: 170px;
 }
 
 .submit :hover {
@@ -160,6 +161,8 @@ body {
     background-color: #bccece;
     height: 100%;
     margin-left: 0;
+    position: fixed;
+    right: 0;
 
 }
 
@@ -336,9 +339,12 @@ body {
 }
 
 .footer {
-    background: rgba(0, 0, 0, 0.5);
+    background: linear-gradient(rgb(51, 51, 109), gray);
     border-top: 3px solid blue;
     color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 .footer h3 {
@@ -378,7 +384,6 @@ body {
     margin:0 auto;
     padding: 20px 10px;
     border-radius: 20px;
-    border: 3px solid blue;
     margin-top: 12px;
     margin-bottom: 12px;
 }
@@ -453,6 +458,31 @@ color: #fff;
     box-shadow: 0 8px 16px 0 #000;
 
 }
+.users{
+    width: 400px;
+    height: 390px;
+    border: 2px solid blue;
+    overflow: auto;
+    border-radius: 2px;
+    overflow-x: hidden;
+    margin: 12px 15px;
+    text-align: left;
+    margin: 0 auto;
+    background: #000000b3;
+}
+.users small{
+    position: absolute;
+    font-size: 20px;
+    font-weight: bolder;
+    margin-bottom: 20px;
+    background: blue;
+    text-align: center;
+    color: #fff;
+    width: 400px
+}
+.users h2{
+    margin: 25px 15px 0 25px;
+}
 table{
     background: #000000b3;
     width: fit-content;
@@ -461,6 +491,9 @@ table{
     height: fit-content;
     border: none;
     margin-top: 12px;
+    height: 500px;
+    overflow: auto;
+    overflow-x: hidden;
     
 }
 table th{
@@ -472,9 +505,10 @@ table td{
     font-size: 14px;
     text-align: left;
 }
-td a{
+.users a{
     text-decoration: none;
     color: #fff;
+    margin:12px;
     
 }
 td a:hover{
@@ -590,4 +624,14 @@ select{
 
 .counters .class{
     background: blueviolet;
+}
+.paylinks a{
+    text-decoration: none;
+
+}
+.paylinks{
+    text-align: left;
+}
+.counters .admin{
+    background: red;
 }

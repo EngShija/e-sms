@@ -8,16 +8,15 @@ if (is_logged()) {
 }
 ?>
 </div>
-<div class="header">
+<header class="header">
     <h><span>e-</span>SMS</h>
     <p><a href="home.php">Home</a></p>
     <p><a href="actions-handler/logout-handlerr.php">Logout</a></p>
     <p><a href="prog.php">Dashboard</a></p>
     <div class="time">
-        <?php include_once "./inc/greetings.php" ?>
     </div>
     <h6></h6>
-</div>
+</header>
 </div>
 <div class="container">
     <div class="MyLoginForm">

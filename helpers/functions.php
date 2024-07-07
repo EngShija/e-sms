@@ -1,9 +1,9 @@
 <?php
 require_once __DIR__ . "/../inc/database.php";
-require_once __DIR__. "/student-functions.php";
-require_once __DIR__. "/parent-functions.php";
-require_once __DIR__. "/teacher-functions.php";
-require_once __DIR__. "/admin-functions.php";
+require_once __DIR__ . "/student-functions.php";
+require_once __DIR__ . "/parent-functions.php";
+require_once __DIR__ . "/teacher-functions.php";
+require_once __DIR__ . "/admin-functions.php";
 function redirect_to(string $url)
 {
     header("Location: $url");
@@ -30,20 +30,18 @@ function log_out(string $url)
     session_unset();
     session_destroy();
 
-    if(isset($_COOKIE['userid']))
-    {
-                    $passwords=$_COOKIE['userid'];
-                 $user_email=$_COOKIE['useremail'];
-            setcookie("userid",$passwords,time()-(60*60*24*7));
-         setcookie("useremail",$user_email,time()-(60*60*24*7));
-         $queryz = "UPDATE Users Set Online='Offline' WHERE Password='$passwords' ";                        
-     database()->query($queryz) or die('Errorr, query failed');	
-                         
-         header("Location: index.php");
+    if (isset($_COOKIE['userid'])) {
+        $passwords = $_COOKIE['userid'];
+        $user_email = $_COOKIE['useremail'];
+        setcookie("userid", $passwords, time() - (60 * 60 * 24 * 7));
+        setcookie("useremail", $user_email, time() - (60 * 60 * 24 * 7));
+        $queryz = "UPDATE Users Set Online='Offline' WHERE Password='$passwords' ";
+        database()->query($queryz) or die('Errorr, query failed');
+
+        header("Location: index.php");
+    } else {
+        header("Location: index.php");
     }
- 
- 
- else{ header("Location: index.php");}
     redirect_to($url);
 }
 
@@ -138,7 +136,12 @@ function upload_profile_pic(int $student_id, int $teacher_id, int $parent_id, in
     return database()->query($query);
 }
 
-function is_upload_err_ok($nofile_url, $partial_uploar_url, $unknown_err_url)
+function update_user_profile($profile_pic, $id,  $user_id){
+    $query = "UPDATE profile SET  profile_image = '$profile_pic' WHERE $id = $user_id";
+    return database()->query($query);
+}
+
+function is_upload_err_ok($nofile_url, $partial_upload_url, $unknown_err_url)
 {
 
     if ($_FILES["image"]["error"] !== UPLOAD_ERR_OK) {
@@ -149,7 +152,7 @@ function is_upload_err_ok($nofile_url, $partial_uploar_url, $unknown_err_url)
                 break;
 
             case UPLOAD_ERR_PARTIAL:
-                redirect_to($partial_uploar_url);
+                redirect_to($partial_upload_url);
 
             default:
                 redirect_to($unknown_err_url);
@@ -181,25 +184,28 @@ function upload_file()
         $filename = $base . "($i)." . $pathinfo["extension"];
         $destination = __DIR__ . "/../uploads/" . $filename;
         $i++;
-    }  
-    $_SESSION["profile_pic"] = $filename;
+    }
+    $_SESSION["profile_pic"] = $filename; 
     if (!move_uploaded_file($_FILES["image"]["tmp_name"], $destination)) {
         redirect_to("../profile_picture.php?failed");
     }
     return;
 }
 
-function add_results($student_id, $subject_id, $subject_name, $marks, $grade, $description){
+function add_results($student_id, $subject_id, $subject_name, $marks, $grade, $description)
+{
     $query = "INSERT INTO result(student_id, subject_id, subject_name, marks, grade, description) VALUES($student_id, $subject_id, '$subject_name', $marks, '$grade', '$description')";
     return database()->query($query);
 }
-function get_subject_imfo(){
+function get_subject_imfo()
+{
     $query = "SELECT * FROM subject";
     $result = database()->query($query);
     return $result->fetch_all(MYSQLI_ASSOC);
 }
 
-function get_subject_imfo_single_row(){
+function get_subject_imfo_single_row()
+{
     $query = "SELECT * FROM subject";
     $result = database()->query($query);
     return $result->fetch_assoc();
@@ -211,26 +217,23 @@ function get_subject_info_by_id($subject_id)
     $result = database()->query($query);
     return $result->fetch_assoc();
 }
-function get_results($student_id){
+function get_results($student_id)
+{
     $query = "SELECT * FROM result WHERE student_id = $student_id";
     $result = database()->query($query);
     return $result->fetch_all(MYSQLI_ASSOC);
 }
 
-function class_count(){
+function class_count()
+{
     $sql = "SELECT COUNT(id) AS id_count FROM class";
     $result = database()->query($sql);
     return $result->fetch_assoc();
 }
 
-function subject_count(){
-    $sql = "SELECT COUNT(id) AS id_count FROM subject";
+function counter($table)
+{
+    $sql = "SELECT COUNT(id) AS id_count FROM $table";
     $result = database()->query($sql);
     return $result->fetch_assoc();
 }
-
-
-
-
-
-

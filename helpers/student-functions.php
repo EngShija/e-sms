@@ -14,6 +14,10 @@ function register($fname, $mname, $lname, $address, $birth_date, $gender, $RegNo
   VALUES('$fname', '$mname', '$lname', '$address', '$birth_date', '$gender', '$RegNo', $phone, '$email', '$password')";
     return database()->query($sql);
 }
+function register_chat_member($fname,$lname,$email,$password,$phone){
+    $enter="INSERT INTO Users (Firstname,Sirname,Email,Password,Phone) VALUES('$fname','$lname','$email','$password','$phone')";
+    return database()->query($enter);
+}
 function get_user_info_by_email(string $email)
 {
     $result = database()->query("SELECT * FROM student WHERE email = '$email'");
@@ -28,6 +32,12 @@ function student()
 {
     return database()->query("SELECT * FROM student")->fetch_all(MYSQLI_ASSOC);
 }
+
+function set_default_profile(){
+    if (!profile_exist(id())) {
+        upload_profile_pic(id(), 0, 0, 0, 'avatar.jpeg');
+}
+}
 function login_student(string $email, string $password)
 {
     $user = get_user_info_by_email($email);
@@ -35,6 +45,7 @@ function login_student(string $email, string $password)
     if ($user) {
         if (verify_hashed_password($password, $user[PASSWORD])) {
             set_session($user[STORED_ID]);
+            set_default_profile();
             redirect_to('../prog.php?logged-in='. $user['email']);
         } else {
             redirect_to('../login.php?wrong-cred');
@@ -94,10 +105,5 @@ function profile_exist(int $student_id)
 function get_chat_users_by_email($email){
 
     $result = database()->query("SELECT * FROM users WHERE Email = '$email'");
-    return $result->fetch_assoc();
-}
-function student_count(){
-    $sql = "SELECT COUNT(id) AS id_count FROM student";
-    $result = database()->query($sql);
     return $result->fetch_assoc();
 }

@@ -63,8 +63,7 @@ if (isset($_POST['submit'])) {
 
                 register($fname, $mname, $lname, $address, $birth_date, $gender, $RegNo, $phone, $email, $password_hash);
 
-                $enter="INSERT INTO Users (Firstname,Sirname,Email,Password,Phone) VALUES('$fname','$lname','$email','$password','$phone')";
-                database()->query($enter);
+                register_chat_member($fname,$lname,$email,$password,$phone);
 
                 redirect_to('../login.php?success');
 

@@ -8,16 +8,15 @@ $profile_pic = display_student_profile_picture(id());
 sweetAlert('dpexist', 'Sorry!', 'You have already a profile picture!', 'warning');
 sweetAlert('dpuploaded', 'Successfully!', 'Profile picture uploaded', 'success')
 ?>
-<div class="header">
+<header class="header">
     <h><span>e-</span>SMS</h>
     <p><a href="home.php">Home</a></p>
     <p><a href="actions-handler/logout-handlerr.php">Logout</a></p>
     <p><a href="prog.php">Dashboard</a></p>
     <div class="time">
-        <?php include_once "./inc/greetings.php" ?>
     </div>
     <h6></h6>
-</div>
+</header>
 
 <div class="container">
     <div class="MyLoginForm">

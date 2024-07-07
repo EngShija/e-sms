@@ -47,22 +47,16 @@ if (is_logged()) {
                 </li>
             </div>
 
-            <fieldset>
-                <form method="post" action="stripePayment/stripe_form.php">
+            <fieldset class="paylinks">
+                <legend>Sellect payment purpose</legend>
                     <div class="col-md-4 column productbox">
                         <div class="purpose">
-                            <select name="purpose">
-                                <option value="0">Sellect purpose of Payment</option>
-                                <option value="School fees">School fees</option>
-                                <option value="Students organisation fee">Students organisation fee</option>
-                                <option value="Lost ID">Lost ID</option>
-                            </select><br><br>
+                         <li><a class="submit" href="https://payments.azampay.co.tz/?id=eda31e86-5645-4143-9cc1-62e048c92f0f&language=en">Tuition Fee </a></li><br>
+                         <li><a class="submit" href="https://payments.azampay.co.tz/?id=eda31e86-5645-4143-9cc1-62e048c92f0f&language=en">Library Fee </a></li><br>
+                         <li><a class="submit" href="https://payments.azampay.co.tz/?id=eda31e86-5645-4143-9cc1-62e048c92f0f&language=en">ID Fee </a></li><br>
+                         <li><a class="submit" href="https://payments.azampay.co.tz/?id=eda31e86-5645-4143-9cc1-62e048c92f0f&language=en">Student organization Fee </a></li><br>
+                        <li> <a class="submit" href="https://payments.azampay.co.tz/?id=eda31e86-5645-4143-9cc1-62e048c92f0f&language=en">Accomodation Fee </a></li>
                         </div>
-                        <input type="number" name="amount" placeholder="Amount" /><br><br>
-                        <div>
-                            <span class="submit">
-                                <button type="submit" name="submit" role="button">Go to pay</button>
-                            </span>
                         </div>
                     </div>
         </div>

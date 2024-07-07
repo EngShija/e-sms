@@ -6,10 +6,8 @@
             <?= $data['last_name'] ?>
             <a href="actions-handler/logout-handlerr.php">(logout)</a>
         </h2>
-        <h3>Developed and published by Eng. Shija</h3>
-        <h3>Vist us and follow us</h3>
         <?php require_once __DIR__. "/socialmedia.php" ?>
-        <p>&#169All Rights Reserved</p>
+        <p>&#169 2023-2024 EngShija</p>
     </div>
 </section>
 </body>

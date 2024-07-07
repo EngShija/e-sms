@@ -19,8 +19,6 @@ if (isset($_POST['login'])) {
   if (!login_student($email, $password)) {
     login_teacher($email, $password);
   }
-
-
   $usql = "SELECT * FROM Users WHERE Email='$email' && Password='$password' ";
   $uresult = mysqli_query(database(), $usql) or die("database error:" . mysqli_error(database()));
   $urow = mysqli_fetch_assoc($uresult);

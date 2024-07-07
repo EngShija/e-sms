@@ -14,37 +14,43 @@ kick_user_to("access.php");
         <div class="time">
                 <?php include_once "./inc/greetings.php"?>
             </div>
-            <h6>Welcome Admin!</h6>
 </div>
       
     <div class="container">
         <div class="MyLoginForm">
             <div class="counters">
         <section class="student">
-<?php $row_count = student_count();
+<?php $row_count = counter('student');
 echo $row_count['id_count']. " Total students";
 ?>
         </section>
 <section class="parent">
-<?php $row_count = parent_count();
+<?php $row_count = counter('parent');
 echo $row_count['id_count']. " Total parents";
 ?>
 </section>
 <section  class="teacher">
-<?php $row_count = teacher_count();
+<?php $row_count = counter('teacher');
 echo $row_count['id_count']. " Total Teachers";
 ?>
 </section>
 
 <section  class="subject">
-<?php $row_count = subject_count();
+<?php $row_count = counter('subject');
 echo $row_count['id_count']. " Total Subjects";
 ?>
 </section>
 
 <section  class="class">
-<?php $row_count = class_count();
+<?php $row_count = counter('class');
 echo $row_count['id_count']. " Total Classes";
+?>
+</section>
+
+
+<section  class="admin">
+<?php $row_count = counter('admin');
+echo $row_count['id_count']. " Total Admins";
 ?>
 </section>
 </div>

@@ -29,37 +29,26 @@ kick_user_to("access.php");
             <input type="submit" name="search" value="Search">
             <li><a href="student.php">Add student</a></li>
         </form>
+
+        <form>
+            <input type="text" onkeyup="serch(this.value)" placeholder="Search">
+        </form>
         </div>
 
-    <table border="2">
-        <tr>
-            <th>S/N</th>
-            <th>Student's Name</th>
-        </tr>
-
-        <tr>
-
-            <?php $counter = 1 ?>
-            <?php foreach (student() as $user): ?>
-
-                <td>
-                    <?= $counter ?>
-                </td>
-                <td>
-                <a href="student-card.php?student-id=<?= $user['id'] ?>">
+        <div class="users">
+        <small>STUDENTS</small>
+        <?php 
+            foreach(student() as $user):
+         ?><h2>
+ <a href="student-card.php?student-id=<?= $user['id'] ?>">
                 <?= $user['first_name'] ?>
                 <?= $user['middle_name'] ?>
                 <?= $user['last_name'] ?>
-                </a>
-            </td>
-            </tr>
-            <?php $counter++ ?>
-        <?php endforeach; ?>
-
-        <?php $_SESSION['std_id'] = $user['id'] ?>
-
-    </table>
-
+                </a></h2><hr>
+       <?php endforeach; ?> 
+        </div>
+        <?php $_SESSION['std_id'] = $user['id'] ?> 
+        </div>
 </div>
 </div>
 <?php require_once __DIR__. "/inc/footer.php" ?>

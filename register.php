@@ -23,12 +23,11 @@ require_once __DIR__ . "/helpers/functions.php";
         <div class="inlineForm">
             <fieldset>
                 <legend>
-                    <h3>Basic info</h3>
+                    <small>Basic info</small>
                 </legend>        
                 <form name="myForm" method="POST" action="actions-handler/register-handler.php"
                     enctype="multipart/form-data">
-                    <br>
-                         <?php genereate_messsage("*Your passwords did not match", "passmatch", "errorMsg") ?><br><br>
+                         <?php genereate_messsage("*Your passwords did not match", "passmatch", "errorMsg") ?><br>
                         <input name="fname" type="text" placeholder="First Name" autofocus><br>
                     <?php genereate_messsage("*First name is empty!", "fnamecheck", "errorMsg") ?>
                     
